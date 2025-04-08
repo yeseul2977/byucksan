@@ -72,7 +72,7 @@ const mainSwiper = new Swiper('.main_swiper', {
 })
 /* Recruit */
 function chBack(a){
-    document.querySelector('.recruit_wrap').style.background = `url(/img/recruit${a}.png) no-repeat`;
+    document.querySelector('.recruit_wrap').style.background = `url(./img/recruit${a}.png) no-repeat`;
 }
 
 /* 뉴스 스와이퍼 */
