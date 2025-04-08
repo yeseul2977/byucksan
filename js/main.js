@@ -1,5 +1,13 @@
 gsap.registerPlugin(ScrollTrigger);
 
+/* 해더 window scroll */
+window.addEventListener('scroll', function(){
+    if(window.scrollY > 10){
+        header.classList.add('scroll')
+    }else{
+        header.classList.remove('scroll')
+    }
+}) 
 /* 해더 mouseover */
 const header = document.querySelector('header')
 const gnbDep1 = document.querySelectorAll('#gnb .dep1>li')
