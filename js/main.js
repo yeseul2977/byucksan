@@ -1,5 +1,15 @@
 gsap.registerPlugin(ScrollTrigger);
 
+
+const product_wrap = document.querySelectorAll('.product_wrap')[0].offsetTop
+window.addEventListener('scroll',function(){
+    if(window.scrollY > 10){
+        window.scrollTo({left:0, top:product_wrap})
+    }
+})
+
+
+
 /* 해더 window scroll */
 window.addEventListener('scroll', function(){
     if(window.scrollY > 10){
