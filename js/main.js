@@ -1,14 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-
-/* 해더 window scroll */
-window.addEventListener('scroll', function(){
-    if(window.scrollY > 10){
-        header.classList.add('scroll')
-    }else{
-        header.classList.remove('scroll')
-    }
-}) 
 /* 해더 mouseover */
 const header = document.querySelector('header')
 const gnbDep1 = document.querySelectorAll('#gnb .dep1>li')
@@ -97,14 +88,13 @@ const newsSwiper = new Swiper('.news_swiper', {
 /* esg intro */
 gsap.to('.intro_content', {
     // yPercent: 500, //translateX(100%)
-    y:-100,
-    duration: 3,
-    opacity: 100,
+    y:350,
     scrollTrigger: {
         trigger: '.intro_content',
-        start: 'top 80%',
-        end: 'bottom 40%',
-        toggleActions: "play none none restart",      
+        start: 'top 90%',
+        end: 'bottom 20%',
+        toggleActions: "play none none reverse",  
+        scrub: 3,    
     } 
 })
 
