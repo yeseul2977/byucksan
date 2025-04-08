@@ -30,17 +30,12 @@ console.log(esgCon)
 
 esgCon.forEach(function(item, i){
         item.addEventListener('mouseover',function(){
-            // esgImg.classList.remove('active')
-            
-            esgImg.forEach(function(img) {
 
+            esgImg.forEach(function(img) {
                 img.classList.remove('active')
             })
             esgImg[i].classList.add('active')
         })
-        // item.addEventListener('mouseout',function(){
-        //     esgImg.classList.remove('active')
-        // })
     })
 
 /* 메인 스와이퍼 */
@@ -82,15 +77,6 @@ const newsSwiper = new Swiper('.news_swiper', {
     loop: true,	
     slidesPerView:'4',
     spaceBetween: 60, 
-    /* pagination: {
-        el: '.swiper-pagination',
-        type: 'custom',
-        renderCustom: function (swiper) {
-        return `
-            <div class="progress"><div class="bar"></div></div>
-            `
-    },
-    } */
 })
 
 /* esg intro */
