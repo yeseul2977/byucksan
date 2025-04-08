@@ -28,15 +28,21 @@ const esgCon = document.querySelectorAll('.esg_content div')
 
 console.log(esgImg)
 console.log(esgCon)
-esgCon.forEach(function(item){
-        item.addEventListener('mouseover',function(){
-            esgImg.classList.add('active')
-        })
-        item.addEventListener('mouseout',function(){
-            esgImg.classList.remove('active')
-        })
-    })
 
+esgCon.forEach(function(item, i){
+        item.addEventListener('mouseover',function(){
+            // esgImg.classList.remove('active')
+            
+            esgImg.forEach(function(img) {
+
+                img.classList.remove('active')
+            })
+            esgImg[i].classList.add('active')
+        })
+        // item.addEventListener('mouseout',function(){
+        //     esgImg.classList.remove('active')
+        // })
+    })
 
 /* 메인 스와이퍼 */
 const slideDuration = 3000;
@@ -61,13 +67,12 @@ const mainSwiper = new Swiper('.main_swiper', {
             <div class="progress"><div class="bar"></div></div>
             <span class="num">${total}</span>
             `
-    },
+        },
     },
 })
 /* Recruit */
 function chBack(a){
     document.querySelector('.recruit_wrap').style.background = `url(/img/recruit${a}.png) no-repeat`;
-
 }
 
 /* 뉴스 스와이퍼 */
@@ -78,10 +83,15 @@ const newsSwiper = new Swiper('.news_swiper', {
     loop: true,	
     slidesPerView:'4',
     spaceBetween: 60, 
-    pagination: {
+    /* pagination: {
         el: '.swiper-pagination',
-        
-    }
+        type: 'custom',
+        renderCustom: function (swiper) {
+        return `
+            <div class="progress"><div class="bar"></div></div>
+            `
+    },
+    } */
 })
 
 /* esg intro */
