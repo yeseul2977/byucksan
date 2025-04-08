@@ -1,15 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
 
-const product_wrap = document.querySelectorAll('.product_wrap')[0].offsetTop
-window.addEventListener('scroll',function(){
-    if(window.scrollY > 10){
-        window.scrollTo({left:0, top:product_wrap})
-    }
-})
-
-
-
 /* 해더 window scroll */
 window.addEventListener('scroll', function(){
     if(window.scrollY > 10){
@@ -49,7 +40,7 @@ esgCon.forEach(function(item, i){
     })
 
 /* 메인 스와이퍼 */
-const slideDuration = 3000;
+const slideDuration = 5000;
 document.documentElement.style.setProperty('--slide-duration',`${slideDuration}ms`)
 
 const mainSwiper = new Swiper('.main_swiper', {

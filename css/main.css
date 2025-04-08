@@ -111,7 +111,7 @@ footer>*{
 .main_wrap .main_swiper .swiper-slide::before {
     content:""; position: absolute;
     left: 0;top: 0;right: 0;bottom: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.3);
 }
 .main_wrap .main_swiper img, .main_wrap .main_swiper video {
     width: 100%;
