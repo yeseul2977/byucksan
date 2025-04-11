@@ -3,6 +3,7 @@
 html {
     overflow-x: hidden;
     font-size: 10px;
+    scroll-behavior: auto;
 }
 body {
     font-size: 1.6rem; color: #222;
@@ -234,16 +235,21 @@ footer>*{
     height: 200vh;
 }
 .esg_intro{
+    position: relative;
     height: 100vh;
     background: rgb(9, 0, 62);
     text-align: center;
     line-height: 3rem;  
 }
-.esg_intro .intro_content{
-    padding: 7rem 0;
-    font-size: 5rem;
-    color: rgba(255, 255, 255, .4);
-}
+.intro_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 1);
+  }
 .esg_intro .intro_content strong{
     color: #FFF;
 }
@@ -256,17 +262,24 @@ footer>*{
     display: flex;
 }
 .esg_box .esg_img {
+    position: relative; /* ← 이거 꼭 있어야 해요 */
     width: 50%;
     height: 100vh;
+    overflow: hidden;
 }
 .esg_box .esg_img img{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    display: none;
+    /* display: none; */
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 .esg_box .esg_img img.active{
-    display: block;
+    opacity: 1;
+    z-index: 1;
 }
 .esg_content{
     display: flex;
@@ -283,7 +296,7 @@ footer>*{
     width: 100%;
     overflow: hidden;
     transition: height 0.8s;
-    border-bottom: 1.5px solid rgba(0, 0, 0, .3);
+    border-bottom: 1.5px solid rgba(0, 0 , 0, .3);
 }
 .esg_content div:hover {
     height: 300px;
@@ -330,17 +343,19 @@ footer>*{
     font-weight: 600;
     background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 90%);
 }
+
+.news_wrap .news_swiper{
+    position: relative;
+}
 .news_wrap .news_swiper .swiper-pagination{
-}
-.news_wrap .news_swiper .swiper-pagination .progress{
+    background-color: rgba(0,0,0,0.1);
+    position: static;
+    margin-top: 5rem;
     width: 100%;
-    height: 5px;
-    background:rgba(255,255,255,.5);
+    height: 1rem;
 }
-.news_wrap .news_swiper .swiper-pagination .bar{
-    height: 100%;
-    width: 3rem;
-    background: #000;
+.swiper-pagination-progressbar-fill {
+    background-color: rgb(9, 0, 62) !important;
 }
 /* recruit */
 .recruit_wrap h2{
