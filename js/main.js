@@ -1,20 +1,35 @@
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
-/* 해더 mouseover */
-const header = document.querySelector('header')
-const gnbDep1 = document.querySelectorAll('#gnb .dep1>li')
+const header = document.querySelector('header');
+const gnbDep1Items = document.querySelectorAll('#gnb .dep1 > li');
 
-gnbDep1.forEach(function(item) {
-    item.addEventListener('mouseover', function() {
-    header.classList.add('scroll')
-    })
-    item.addEventListener('mouseout', function() {
-    header.classList.remove('scroll')
-    })
-})
+// 각 dep1 > li 항목마다 이벤트 걸기
+gnbDep1Items.forEach(function (item) {
+    // 마우스를 올리면 header에 클래스 추가
+    item.addEventListener('mouseenter', function () {
+        header.classList.add('scroll');
+        header.classList.add('on');
+    });
 
-/* 해더 window scroll */
+    // 마우스를 뗄 때, header 바깥으로 나갔을 때만 클래스 제거
+    item.addEventListener('mouseleave', function (e) {
+        if (!header.contains(e.relatedTarget)) {
+            header.classList.remove('scroll');
+            header.classList.remove('on');
+        }
+    });
+});
+
+// header 전체에서 벗어날 때도 다시 체크
+header.addEventListener('mouseleave', function (e) {
+    if (!header.contains(e.relatedTarget)) {
+        header.classList.remove('scroll');
+        header.classList.remove('on');
+    }
+});
+
+/* header window scroll */
 window.addEventListener('scroll', function(){
     if(window.scrollY > 10){
         header.classList.add('scroll')
@@ -23,7 +38,36 @@ window.addEventListener('scroll', function(){
         main.style.display = `block`
     }
 }) 
+/* header lang */
+const langBtn = document.querySelector('.lang_wrap button')
+const langList = document.querySelector('.lang_wrap ul')
+langBtn.addEventListener('click', function() {
+    langList.classList.toggle('active')
+})
+/* header search */
+const searchBtn = document.querySelector('.search_wrap button')
+const searchBox = document.querySelector('.search_popup')
 
+searchBox.style.display = 'none';
+searchBtn.addEventListener('click', function() {
+  if(searchBox.style.display === 'none') {
+    searchBox.style.display = 'block'
+    header.classList.remove('on')
+  } else {
+    searchBox.style.display = 'none'
+  }
+})
+/* allmenu */
+const allmenuOpenBtn = document.querySelector('.allmenu_wrap')
+const allmenuCloseBtn = document.querySelector('.btn_allmenu_close')
+const allmenu = document.querySelector('.allmenu_popup')
+
+allmenuOpenBtn.addEventListener('click', function() {
+    allmenu.style.display = 'flex';
+})
+allmenuCloseBtn.addEventListener('click', function() {
+    allmenu.style.display = 'none'
+})
 /* esg */
 const esgImg = document.querySelectorAll('.esg_img img')
 const esgCon = document.querySelectorAll('.esg_content div')
@@ -107,60 +151,43 @@ gsap.to('.intro_content', {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll('.main_wrap, .product_wrap, .esg_intro, .esg_box, .news_wrap, .recruit_wrap, .qmenu_wrap');
-
+    const sections = document.querySelectorAll('.main_wrap, .product_wrap, .esg_intro, .esg_box, .news_wrap, .recruit_wrap, .qmenu_wrap, footer');
     let current = 0;
     let isAnimating = false;
 
     function goToSection(index) {
-      if (index < 0 || index >= sections.length || isAnimating) return;
-      isAnimating = true;
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: sections[index].offsetTop - document.querySelector("header").offsetHeight
-        },
-        ease: "power2.out",
-        onComplete: () => {
-          current = index;
-          isAnimating = false;
-        }
-      });
+        if (index < 0 || index >= sections.length || isAnimating) return;
+        isAnimating = true;
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+                y: sections[index].offsetTop - document.querySelector("header").offsetHeight
+            },
+            ease: "power2.out",
+            onComplete: () => {
+                current = index;
+                isAnimating = false;
+            }
+        });
     }
-  
-    window.addEventListener("wheel", (e) => {
-      if (isAnimating) return;
-      if (e.deltaY > 0) {
-        goToSection(current + 1); // 아래로
-      } else {
-        goToSection(current - 1); // 위로
-      }
-    });
-  }); 
 
- /*  document.addEventListener("DOMContentLoaded", () => {
-    const headerHeight = document.querySelector("header").offsetHeight;
-    const sections = [...document.querySelectorAll('.main_wrap, .product_wrap, .esg_intro, .esg_box, .news_wrap, .recruit_wrap, .qmenu_wrap')];
-    let current = 0;
-    let isAnimating = false;
-  
-    const goTo = (i) => {
-      if (isAnimating || i < 0 || i >= sections.length) return;
-      isAnimating = true;
-      
-      const y = sections[i].offsetTop - headerHeight;
-  
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: y,
-        ease: "power2.out",
-        onComplete: () => {
-          current = i;
-          isAnimating = false;
+    // 현재 섹션을 실시간으로 감지해서 current 인덱스 갱신
+    window.addEventListener("scroll", () => {
+        const scrollY = window.pageYOffset + window.innerHeight / 2;
+        sections.forEach((section, i) => {
+            if (scrollY >= section.offsetTop) {
+                current = i;
+            }
+        });
+    });
+
+    // 휠 이벤트로 섹션 이동
+    window.addEventListener("wheel", (e) => {
+        if (isAnimating) return;
+        if (e.deltaY > 0) {
+            goToSection(current + 1);
+        } else {
+            goToSection(current - 1);
         }
-      });
-    };
-  
-    window.addEventListener("wheel", (e) => goTo(current + (e.deltaY > 0 ? 1 : -1)));
-  });
-   */
+    });
+});
