@@ -46,7 +46,7 @@ header.scroll{
     transition: all 0.6s;
 }
 header.scroll h1 a {
-    background:url(../../img/logo.png) no-repeat;
+    background:url(../img/logo.png) no-repeat;
     background-size: contain;
 }
 header::after{
