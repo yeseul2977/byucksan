@@ -77,7 +77,7 @@ header h1 a{
     display: block;
     width: 15rem;
     height: 4.3rem;
-    background: url(../../img/logo_white.png) no-repeat;
+    background: url(../img/logo_white.png) no-repeat;
     background-size: 100% auto;
 }
 header #gnb{
