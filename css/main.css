@@ -4,17 +4,18 @@ html {
     overflow-x: hidden;
     font-size: 10px;
     scroll-behavior: auto;
+    
 }
 body {
     font-size: 1.6rem; color: #222;
     font-family: 'Noto Sans KR','suit','MalgunGothic', 'AppleSDGothic', sans-serif;
 }
 section{
-    height: 100vh;
+    height: calc(100vh - 10rem);
 }
 h2 {
     padding: 7rem 0; 
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 700;
     line-height: 6rem;
 }
@@ -65,7 +66,7 @@ header.on::after{
     opacity: 1;
 }
 header.on #gnb .dep2 {
-    display: block;
+    display: flex;
 }
 header .container{
     display: flex;
@@ -84,15 +85,15 @@ header #gnb{
     width: 60%;
     height: 8rem;
 }
-header #gnb .dep1{      
+header #gnb .dep1{
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 header #gnb .dep1>li>a{
-    display: block;  
-    padding: 3.2rem;
+    display: block;
+    padding: 3rem 2rem;
 }
 header #gnb .dep1>li{
     position: relative;
@@ -101,22 +102,38 @@ header #gnb .dep1>li{
     display: none;
     position: absolute;
     flex-direction: column;
-    top: 11rem;
-    left: -0.8rem;
+    align-items: center;
+    gap: 2.5rem;
+    top: 12rem;
     z-index: 1;
-    width: 15rem;
+    width: auto; /* 내용에 맞게 자동 */
+    min-width: 100%; /* 최소 너비는 유지 */
+    font-size: 1.5rem;
 }
-#gnb .dep2>li{
-    padding: 1.3rem;
-    text-align: center;
+@media screen and (max-width: 1430px) {
+    header #gnb .dep1>li>a{
+        padding: 3rem 1rem;
+        font-size: 1.5rem;
+    }
+    header #gnb .dep2 {
+        font-size: 1.3rem;
+    }
 }
+@media screen and (max-width: 1180px) {
+    header #gnb .dep1{
+        display: none;
+    }
+    .container{
+        padding: 0 10rem;
+    }    
+}
+
 /* header - util */
 header .util{
     display:flex;
     align-items: center;
     gap: 2rem;
     height: 8rem;
-    font-weight: 700;
 }
 .util .lang_wrap{
     position: relative;
@@ -150,6 +167,7 @@ header .util{
 }
 
 /* header - search */
+
 .search_popup {
     position: absolute;
     left: 0;right: 0;top: 10rem;
@@ -177,6 +195,21 @@ header .util{
     color: #FFF;
     font-size: 2rem;
 }
+
+@media screen and (max-width: 600px) {
+    .search_popup form {
+        gap: 2rem;
+    }
+    .search_popup form input{
+        width: 40rem;
+        height: 4rem;
+    }
+    .search_popup form button {
+        height: 4rem;
+        width: 4rem;
+        font-size: 1.5rem;
+    }
+}
 /* header - allmenu */
 .allmenu_wrap{
     position: relative;
@@ -189,7 +222,9 @@ header .util{
     top: 0;
     left: 0;
     width: 100vw;
+    min-width: 115.2rem;
     background: #ffffff;
+    
 }
 .allmenu_popup .allmenu_logo{
     margin-top: 2rem;
@@ -237,9 +272,31 @@ header .util{
     font-weight: 100;
     color: #353535;
 }
+@media screen and (max-width: 1450px) {
+    .allmenu_popup .allmenu_logo img{
+        display: none;
+    }
+    .allmenu_popup .dep3>li{
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
+    }
+    .allmenu_popup .dep3{
+        margin-top: 1rem;
+    }
+    .allmenu_popup .dep2{
+        margin-top: 1.5rem;
+    }
+    .allmenu_popup .dep1>li{
+        font-size: 1.5rem;
+    }
+}
+
+
 /* footer */
 footer{
+    border-top: 0.1rem solid #000;
     padding: 3rem 0;
+    height: 15rem;
 }
 footer>*{
     display: flex;
@@ -289,7 +346,6 @@ footer>*{
     font-weight: 500;
     line-height: 6rem;
     color: #FFF;
-
 }
 .main_wrap .main_controls {
     position: absolute;bottom: 50px;left: 0;
@@ -336,12 +392,27 @@ footer>*{
     font-size: 2.4rem;
     margin-left: 1.5rem;
 } 
+@media screen and (max-width: 1180px) {
+    .main_wrap .swiper-slide .main_txt{
+        left: 10rem;
+        font-size: 3.5rem;
+        font-weight: 500;
+        line-height: 5rem;
+    }
+    .main_wrap .swiper-pagination .progress {
+        width: 17rem;
+    }
+}
+
 
 /* product */
 .product_wrap{
-    background: rgb(9, 0, 62);
+    /* background: rgb(9, 0, 62);  */
+    background :#0c1b36;
+    border-top: 0.1rem solid #646464;
     color: #FFF;
 }
+
 .product_wrap h2{
     margin-bottom: 4rem;
 }
@@ -351,47 +422,57 @@ footer>*{
     gap: 2rem;
 }
 .product_wrap .product_box li {
-    border-radius: 20px;
+    position: relative;
+    border-radius: 1rem;
     width: 10rem;
     overflow: hidden;
     flex-grow: 1;
-    height: 55rem;
+    height: 45rem;
     text-align: center;
     transition: all 1s;
 }
 .product_img{
     width: 100%;
     height: 35rem;
-    border-radius: 20px;
 }
 .product_box li strong{
     display: block;
     font-weight: 600;
-    font-size: 5rem;
-    margin-bottom: 2rem;
+    font-size: 3rem;
+    padding-top: 2rem;
 }
 .product_box li .product_list{
     display: none;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;;
+    right: 7%;
+    top: 30%;
     font-size: 2rem;
 }
 .product_box li a{
     display: inline-block;
-    margin: 0 0 0.5rem;
 }
 .product_box li:hover{
     background :#FFF;
     color: #000;
-    flex-grow: 3;
+    flex-grow: 2.2;
+}
+.product_box li:nth-child(2):hover .product_list{
+    top: 10%;
+    right: 5%;
 }
 .product_box li:hover .product_img{
     filter: drop-shadow(10px 15px 10px #4d4d4d);
 }
 .product_box li:hover .product_list{
-    display: block;  
+    display: flex;  
 }
 .product_box li a:hover {
-    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5rem;
 }
+
 /* esg */
 .esg_wrap{
     height: 200vh;
@@ -399,7 +480,8 @@ footer>*{
 .esg_intro{
     position: relative;
     height: 100vh;
-    background: rgb(9, 0, 62);
+    /* background: rgb(9, 0, 62); */
+    background :#0c1b36;
     text-align: center;
     line-height: 3rem;  
 }
@@ -411,22 +493,28 @@ footer>*{
     text-align: center;
     font-size: 3rem;
     color: rgba(255, 255, 255, 1);
-  }
+}
 .esg_intro .intro_content strong{
     color: #FFF;
 }
 .esg_intro p{
     margin-bottom: 2rem;
 }
+@media screen and (max-width: 1625px) {
+    .intro_content {
+        font-size: 1.8rem;
+    }
+}
+
+
 /* .esg_box */
 .esg_box{
-    height: 100vh;
     display: flex;
 }
 .esg_box .esg_img {
-    position: relative; /* ← 이거 꼭 있어야 해요 */
+    position: relative; 
     width: 50%;
-    height: 100vh;
+    height: calc(100vh - 10rem);
     overflow: hidden;
 }
 .esg_box .esg_img img{
@@ -489,18 +577,21 @@ footer>*{
 }
 .news_wrap .news_swiper .swiper-slide {
     position: relative;
-    width: 300px;
-    height: 500px;
+    height: 45rem;
     margin-right: 1.4rem;
-    border-radius: 30px;overflow: hidden;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 .news_wrap .news_swiper .swiper-slide span{
     position: absolute;
-    /* top: 90%;
-    left: 10%; */
-    left: 0;top: 0;
-    display: flex;justify-content: center;align-items: flex-end;
-    width: 100%;height: 100%;padding-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10%;
     color: #FFF;
     font-weight: 600;
     background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 90%);
@@ -517,7 +608,7 @@ footer>*{
     height: 1rem;
 }
 .swiper-pagination-progressbar-fill {
-    background-color: rgb(9, 0, 62) !important;
+    background-color: rgba(0,0,0,0.3) !important;
 }
 /* recruit */
 .recruit_wrap h2{
@@ -558,23 +649,23 @@ footer>*{
 
 /* qmenu */
 .qmenu_wrap{
+    display: flex; /* 자식 정렬을 위해 flex 사용 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
 }
 .qmenu_box{
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
     grid-template-columns: 1.4fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    padding-top: 10rem;
-    /* grid-template-columns: 55rem 50rem 50rem;
-    grid-template-rows: 66rem 32rem 32rem; */
+    width: 150rem; 
 }
 .qmenu_box div{
-    background: pink;
-    border-radius: 20px;
+    border-radius: 1.5rem;
 }
 .qmenu_box .qmenu_con1{
     grid-row: 1 / span 2;
-    height: 66rem;
+    height: 50rem;
     background: #0E3663;
 }
 .qmenu_box .qmenu_con2{
@@ -605,13 +696,13 @@ footer>*{
     position: absolute;
     right: 2rem;
     bottom: 2rem;
-    width: 15rem;
-    height: 15rem;
+    width: 12rem;
+    height: 12rem;
     display: inline;
 }
 .qmenu_box div:first-child img{
-    width: 40rem;
-    height: 40rem;
+    width: 28rem;
+    height: 28rem;
 }
 
 

@@ -50,12 +50,12 @@ const searchBox = document.querySelector('.search_popup')
 
 searchBox.style.display = 'none';
 searchBtn.addEventListener('click', function() {
-  if(searchBox.style.display === 'none') {
+if(searchBox.style.display === 'none') {
     searchBox.style.display = 'block'
     header.classList.remove('on')
-  } else {
+} else {
     searchBox.style.display = 'none'
-  }
+}
 })
 /* allmenu */
 const allmenuOpenBtn = document.querySelector('.allmenu_wrap')
@@ -64,6 +64,7 @@ const allmenu = document.querySelector('.allmenu_popup')
 
 allmenuOpenBtn.addEventListener('click', function() {
     allmenu.style.display = 'flex';
+    header.classList.remove('on')
 })
 allmenuCloseBtn.addEventListener('click', function() {
     allmenu.style.display = 'none'
@@ -136,22 +137,22 @@ gsap.set('.intro_content', { y: 100, opacity: 0 });
 
 // 스크롤 트리거 애니메이션
 gsap.to('.intro_content', {
-  y: 0,
-  opacity: 1,
-  duration:2,
-  scrollTrigger: {
-    trigger: '.intro_content',
-    start: 'top 90%',
-    end: 'bottom 20%',
-    toggleActions: "play none none reverse",
-  },
-  ease: "power2.out"
+    y: 0,
+    opacity: 1,
+    duration:2,
+    scrollTrigger: {
+        trigger: '.intro_content',
+        start: 'top 90%',
+        end: 'bottom 20%',
+        toggleActions: "play none none reverse",
+    },
+    ease: "power2.out"
 });
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll('.main_wrap, .product_wrap, .esg_intro, .esg_box, .news_wrap, .recruit_wrap, .qmenu_wrap, footer');
+    const sections = document.querySelectorAll('.main_wrap, .product_wrap, .esg_intro, .esg_box, .news_wrap, .recruit_wrap, .qmenu_wrap');
     let current = 0;
     let isAnimating = false;
 
@@ -190,4 +191,4 @@ document.addEventListener("DOMContentLoaded", () => {
             goToSection(current - 1);
         }
     });
-});
+}); 
