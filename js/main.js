@@ -215,7 +215,6 @@ gsap.to('.intro_content', {
             }
         });
     }
-
     // 현재 섹션을 실시간으로 감지해서 current 인덱스 갱신
     window.addEventListener("scroll", () => {
         const scrollY = window.pageYOffset + window.innerHeight / 2;
@@ -225,7 +224,6 @@ gsap.to('.intro_content', {
             }
         });
     });
-
     // 휠 이벤트로 섹션 이동
     window.addEventListener("wheel", (e) => {
         if (isAnimating) return;

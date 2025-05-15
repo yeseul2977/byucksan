@@ -167,7 +167,6 @@ header .util{
 }
 
 /* header - search */
-
 .search_popup {
     position: absolute;
     left: 0;right: 0;top: 10rem;
@@ -195,7 +194,6 @@ header .util{
     color: #FFF;
     font-size: 2rem;
 }
-
 @media screen and (max-width: 600px) {
     .search_popup form {
         gap: 2rem;
@@ -290,8 +288,6 @@ header .util{
         font-size: 1.5rem;
     }
 }
-
-
 /* footer */
 footer{
     border-top: 0.1rem solid #000;
