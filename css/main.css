@@ -472,7 +472,6 @@ footer>*{
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.5rem;
 }
-
 /* esg */
 .esg_wrap{
     height: 200vh;
@@ -480,7 +479,6 @@ footer>*{
 .esg_intro{
     position: relative;
     height: 100vh;
-    /* background: rgb(9, 0, 62); */
     background :#0c1b36;
     text-align: center;
     line-height: 3rem;  
