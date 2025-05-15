@@ -506,9 +506,6 @@ footer>*{
 
 
 /* .esg_box */
-.esg_wrap h2{
-    padding: 5rem;
-}
 .esg_box{
     display: flex;
 }

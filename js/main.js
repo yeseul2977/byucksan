@@ -128,6 +128,7 @@ const newsSwiper = new Swiper('.news_swiper', {
     pagination:{
         el: '.swiper-pagination',
         type: 'progressbar'
+
     },
     breakpoints: {
         0: { 
@@ -148,7 +149,6 @@ const newsSwiper = new Swiper('.news_swiper', {
         }
     }
 })
-
 
 
 /* esg intro */
@@ -194,47 +194,3 @@ gsap.to('.intro_content', {
 });
 
 
-/* 
-
-document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll('.main_wrap, .product_wrap, .esg_intro, .esg_box, .news_wrap, .recruit_wrap, .qmenu_wrap');
-    let current = 0;
-    let isAnimating = false;
-
-    function goToSection(index) {
-        if (index < 0 || index >= sections.length || isAnimating) return;
-        isAnimating = true;
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: {
-                y: sections[index].offsetTop - document.querySelector("header").offsetHeight
-            },
-            ease: "power2.out",
-            onComplete: () => {
-                current = index;
-                isAnimating = false;
-            }
-        });
-    }
-
-    // 현재 섹션을 실시간으로 감지해서 current 인덱스 갱신
-    window.addEventListener("scroll", () => {
-        const scrollY = window.pageYOffset + window.innerHeight / 2;
-        sections.forEach((section, i) => {
-            if (scrollY >= section.offsetTop) {
-                current = i;
-            }
-        });
-    });
-
-    // 휠 이벤트로 섹션 이동
-    window.addEventListener("wheel", (e) => {
-        if (isAnimating) return;
-        if (e.deltaY > 0) {
-            goToSection(current + 1);
-        } else {
-            goToSection(current - 1);
-        }
-    });
-}); 
- */
