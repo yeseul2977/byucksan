@@ -233,5 +233,5 @@ gsap.to('.intro_content', {
             goToSection(current - 1);
         }
     });
-});  */
+});   */
 
