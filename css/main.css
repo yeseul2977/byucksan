@@ -35,7 +35,7 @@ h2 {
 
 /* header */
 header {
-    min-width: 55.5rem;;
+    min-width: 55.5rem;
     position: fixed;
     left: 0;
     right: 0;
@@ -665,7 +665,7 @@ footer>*{
 }
 /* recruit */
 .recruit_wrap{
-    min-width: 42rem;
+    min-width: 63rem;
 }
 .recruit_wrap h2{
     color: #FFF;
@@ -676,7 +676,7 @@ footer>*{
     transition: 0.8s;
 }
 .recruit_wrap .recruit_content{
-    color: #FFF;
+    color: #a3a3a3;
     display: flex;
     justify-content: space-between;
 }
@@ -687,6 +687,10 @@ footer>*{
     align-items: center;
     width: 39rem;
     height: 50rem;
+}
+.recruit_wrap .recruit_content a:hover{
+    color: #FFF;
+    transition: all 0.6s;
 }
 .recruit_wrap .recruit_content span{
     font-size: 4rem;
@@ -706,31 +710,23 @@ footer>*{
         font-size: 1.2rem;
     }
 }
-@media screen and (max-width: 990px) {
-    .recruit_wrap .recruit_content p{
-        display: none;
-    }
-}
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 1000px) {
     .recruit_wrap .recruit_content {
-        flex-direction: column;
-        align-items: center; 
-        margin-top: 20%;
+        flex-wrap: wrap;
     }
     .recruit_wrap .recruit_content a {
-        width: 90%;
-        height: auto;
-        margin : 2.5rem
+        width: 50%;
+        height: 30vh;
     }
-}
+} 
 /* qmenu */
 .qmenu_wrap{
-    display: flex; /* 자식 정렬을 위해 flex 사용 */
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
+    min-width: 56rem;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 .qmenu_box{
-    border: 1px solid #000;
     display: grid;
     gap: 3rem;
     grid-template-columns: 1.4fr 1fr 1fr;
@@ -769,17 +765,40 @@ footer>*{
     font-weight: 500;
     color: #FFF;
 }
-/* .qmenu_box div img{
-    position: absolute;
-    right: 2rem;
-    bottom: 2rem;
-    width: 12rem;
-    height: 12rem;
-    display: inline;
-}
-.qmenu_box div:first-child img{
-    width: 28rem;
-    height: 28rem;
-} */
 
+@media screen and (max-width: 1280px) {
+    .qmenu_box{
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 90rem; 
+    }
+    .qmenu_box div strong{  
+        font-size: 2rem;
+        font-weight:400;
+    }
+}
+@media screen and (max-width: 930px) {
+    .qmenu_box {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .qmenu_box .qmenu_con1 {
+        grid-column: 1 / span 2;
+        height: 28rem;
+    }
+    .qmenu_box > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15rem;
+    }
+    .qmenu_box div strong {  
+        font-size: 2rem;
+        font-weight: 400;
+    }
+}
 
