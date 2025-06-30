@@ -1,7 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
-<<<<<<< HEAD
 
 document.querySelectorAll("section h2").forEach(h2 => {
   gsap.from(h2, {
@@ -18,8 +17,6 @@ document.querySelectorAll("section h2").forEach(h2 => {
 });
 
 
-=======
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 const header = document.querySelector('header');
 const gnbDep1Items = document.querySelectorAll('#gnb .dep1 > li');
 
@@ -83,11 +80,8 @@ allmenuOpenBtn.addEventListener('click', function() {
 allmenuCloseBtn.addEventListener('click', function() {
     allmenu.style.display = 'none'
 })
-<<<<<<< HEAD
 
-// ✅ product_wrap 요소 선택 (스크롤 트리거용)
 const productSection = document.querySelector(".product_wrap");
-
 
 gsap.utils.toArray(".product_box li").forEach((item, index) => {
   gsap.from(item, {
@@ -115,7 +109,7 @@ gsap.to(".esg_intro", {
   }
 });
 
-// 📌 intro_content 텍스트 올라오며 색상 변경
+
 gsap.to(".intro_content", {
   y: -50,
   opacity: 1,
@@ -130,7 +124,7 @@ gsap.to(".intro_content", {
 });
 
 
-=======
+
 /* esg intro */
 gsap.set('.intro_content', { y: 100, opacity: 0 });
 
@@ -170,7 +164,7 @@ gsap.to('.intro_content', {
     },
     ease: "power2.out"
 });
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
+
 /* esg */
 const esgImg = document.querySelectorAll('.esg_img img')
 const esgCon = document.querySelectorAll('.esg_content div')
@@ -246,7 +240,6 @@ const newsSwiper = new Swiper('.news_swiper', {
         }
     }
 })
-<<<<<<< HEAD
 
 gsap.from(".news_swiper", {
   scrollTrigger: {
@@ -273,13 +266,10 @@ gsap.utils.toArray(".news_swiper .swiper-slide").forEach((slide, index) => {
     ease: "power2.out"
   });
 });
-=======
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 /* Recruit */
 function chBack(a){
     document.querySelector('.recruit_wrap').style.background = `url(./img/recruit${a}.png) no-repeat`;
 }
-<<<<<<< HEAD
 gsap.utils.toArray(".recruit_content a").forEach((item, index) => {
   gsap.from(item, {
     scrollTrigger: {
@@ -354,6 +344,3 @@ const inRecruit = recruitSection.contains(e.target);
       cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
     });
   });
-=======
-
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d

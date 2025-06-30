@@ -466,11 +466,7 @@ footer>*{
 .product_box li:hover{
     background :#FFF;
     color: #000;
-<<<<<<< HEAD
-    flex-grow: 4;
-=======
     flex-grow: 2.2;
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 }
 .product_box li:nth-child(2):hover .product_list{
     top: 10%;
@@ -482,7 +478,6 @@ footer>*{
 .product_box li:hover .product_list{
     display: flex;  
 }
-<<<<<<< HEAD
 @media screen and (max-width: 1610px) {
     .product_wrap .puick_product_list {
         display: none;
@@ -511,42 +506,42 @@ footer>*{
 
 }
 @media screen and (max-width: 720px) {
-  /* product li 숨기기 */
-  .product_wrap .product_box {
-    display: none;
-  }
 
-  /* 바로가기 버튼 보이기 + 가운데 정렬 */
-  .product_wrap .puick_product {
-    display: inline-block;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 2rem;
-    background: #4d4d4d;
-    color: #FFF;
-    padding: 2rem 6rem;
-    border-radius: 1rem;
-    transition: background 0.5s ease;
-  }
+    .product_wrap .product_box {
+        display: none;
+    }
 
-  .product_wrap .puick_product:hover {
-    background: #FFF;
-    color: #000;
-  }
 
-  .product_wrap {
-    text-align: center;
-  }
+    .product_wrap .puick_product {
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        font-size: 2rem;
+        background: #4d4d4d;
+        color: #FFF;
+        padding: 2rem 6rem;
+        border-radius: 1rem;
+        transition: background 0.5s ease;
+    }
 
-  .product_wrap h2 {
-    font-size: 3rem;
-    line-height: 1.4;
-    margin-top: 10rem;
-  }
-=======
-.product_box li a:hover {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 0.5rem;
+    .product_wrap .puick_product:hover {
+        background: #FFF;
+        color: #000;
+    }
+
+    .product_wrap {
+        text-align: center;
+    }
+
+    .product_wrap h2 {
+        font-size: 3rem;
+        line-height: 1.4;
+        margin-top: 10rem;
+    }
+    .product_box li a:hover {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 0.5rem;
+    }
 }
 @media screen and (max-width: 1000px) {
     .product_box li:hover .product_list{
@@ -577,7 +572,7 @@ footer>*{
     .product_wrap a{
         display: block;
     }
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
+
 }
 
 /* esg */
@@ -715,7 +710,6 @@ footer>*{
     font-size: 1.3rem;
     font-weight: 400;
     background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 90%);
-<<<<<<< HEAD
     opacity: 0;
     transform: translateY(20px); /* 아래에서 올라오듯 */
     transition: all 0.4s ease;
@@ -725,10 +719,8 @@ footer>*{
   opacity: 1;
   transform: translateY(0);
 }
-=======
-}
 
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
+
 .news_wrap .news_swiper{
     position: relative;
 }
@@ -742,14 +734,7 @@ footer>*{
 .swiper-pagination-progressbar-fill {
     background-color: rgba(0,0,0,0.3) !important;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 /* recruit */
-.recruit_wrap{
-    min-width: 63rem;
-}
 .recruit_wrap h2{
     color: #FFF;
     padding-bottom: 5rem;
@@ -757,6 +742,7 @@ footer>*{
 .recruit_wrap{
     background: url(/img/recruit1.png) no-repeat;
     transition: 0.8s;
+    min-width: 63rem;
 }
 .recruit_wrap .recruit_content{
     color: #a3a3a3;
@@ -784,7 +770,7 @@ footer>*{
     text-align: center;
     line-height: 2rem;
 }
-<<<<<<< HEAD
+
 .custom-cursor {
     position: fixed;
     top: 0;
@@ -807,9 +793,6 @@ footer>*{
     height: 6rem;
     background-color: rgba(255, 255, 255, 0.7); /* 호버 시 색상 변경 */
 }
-=======
-
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 @media screen and (max-width: 1360px) {
     .recruit_wrap .recruit_content span {
         font-size: 3rem;
@@ -844,7 +827,7 @@ footer>*{
 .qmenu_box div{
     border-radius: 1.5rem;
 }
-<<<<<<< HEAD
+
 .qmenu_item {
   position: relative;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* x, y, blur, 색상 */
@@ -862,12 +845,6 @@ footer>*{
     background-size: cover;         /* 영역에 딱 맞게 채움 (잘림 가능) */
     background-position: center;    /* 가운데 정렬 */
     background-repeat: no-repeat;   /* 반복 제거 */
-=======
-.qmenu_box .qmenu_con1{
-    grid-row: 1 / span 2;
-    height: 50rem;
-    background: #0E3663;
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 }
 .qmenu_box .qmenu_con2{
     background: #5978A9;
@@ -893,12 +870,9 @@ footer>*{
     font-weight: 500;
     color: #FFF;
 }
-<<<<<<< HEAD
 .qmenu_box .qmenu_con1 strong{
     color: #000;
 }
-=======
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 
 @media screen and (max-width: 1280px) {
     .qmenu_box{
