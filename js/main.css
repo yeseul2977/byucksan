@@ -4,6 +4,7 @@ html {
     overflow-x: hidden;
     font-size: 10px;
     scroll-behavior: auto;
+    
 }
 body {
     font-size: 1.6rem; color: #222;
@@ -11,7 +12,6 @@ body {
 }
 section{
     height: calc(100vh - 10rem);
-    min-height: 85rem;
 }
 h2 {
     padding: 7rem 0; 
@@ -35,7 +35,6 @@ h2 {
 
 /* header */
 header {
-    min-width: 55.5rem;
     position: fixed;
     left: 0;
     right: 0;
@@ -117,7 +116,7 @@ header #gnb .dep1>li{
         font-size: 1.5rem;
     }
     header #gnb .dep2 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 }
 @media screen and (max-width: 1180px) {
@@ -168,6 +167,7 @@ header .util{
 }
 
 /* header - search */
+
 .search_popup {
     position: absolute;
     left: 0;right: 0;top: 10rem;
@@ -195,6 +195,7 @@ header .util{
     color: #FFF;
     font-size: 2rem;
 }
+
 @media screen and (max-width: 600px) {
     .search_popup form {
         gap: 2rem;
@@ -289,12 +290,13 @@ header .util{
         font-size: 1.5rem;
     }
 }
+
+
 /* footer */
 footer{
     border-top: 0.1rem solid #000;
     padding: 3rem 0;
     height: 15rem;
-    min-width: 78rem;
 }
 footer>*{
     display: flex;
@@ -320,16 +322,8 @@ footer>*{
     gap: 1rem;
     font-size: 4rem;
 }
-@media screen and (max-width: 950px) {
-    .footer_info{
-        font-size: 1.3rem;
-        gap: 3rem;
-    }
-}
+
 /* main_wrap */
-.main_wrap{
-    min-width: 55.5rem;
-}
 .main_wrap .main_swiper {
     height: 100vh;
     position: relative;
@@ -417,18 +411,14 @@ footer>*{
     background :#0c1b36;
     border-top: 0.1rem solid #646464;
     color: #FFF;
-    min-width: 55.5rem;
 }
 
 .product_wrap h2{
     margin-bottom: 4rem;
 }
-.product_wrap .puick_product{
-    display: none;
-    font-size: 2rem;
-}
 .product_wrap .product_box {
     display: flex;
+    /* justify-content: space-between; */
     gap: 2rem;
 }
 .product_wrap .product_box li {
@@ -466,11 +456,7 @@ footer>*{
 .product_box li:hover{
     background :#FFF;
     color: #000;
-<<<<<<< HEAD
-    flex-grow: 4;
-=======
     flex-grow: 2.2;
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 }
 .product_box li:nth-child(2):hover .product_list{
     top: 10%;
@@ -482,108 +468,13 @@ footer>*{
 .product_box li:hover .product_list{
     display: flex;  
 }
-<<<<<<< HEAD
-@media screen and (max-width: 1610px) {
-    .product_wrap .puick_product_list {
-        display: none;
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 2rem;
-        background: #fff;
-        color: #000;
-        padding: 0.8rem 2rem;
-        border-radius: 0.8rem;
-        text-decoration: none;
-        transition: all 0.3s;
-        z-index: 10;
-    }
-    .product_box li:hover{
-        background :#FFF;
-        color: #000;
-        flex-grow: 2;
-    }
-    /* li에 hover했을 때 product_list 숨기기 */
-    .product_box li:hover .product_list {
-        display: none;
-    }
-
-}
-@media screen and (max-width: 720px) {
-  /* product li 숨기기 */
-  .product_wrap .product_box {
-    display: none;
-  }
-
-  /* 바로가기 버튼 보이기 + 가운데 정렬 */
-  .product_wrap .puick_product {
-    display: inline-block;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 2rem;
-    background: #4d4d4d;
-    color: #FFF;
-    padding: 2rem 6rem;
-    border-radius: 1rem;
-    transition: background 0.5s ease;
-  }
-
-  .product_wrap .puick_product:hover {
-    background: #FFF;
-    color: #000;
-  }
-
-  .product_wrap {
-    text-align: center;
-  }
-
-  .product_wrap h2 {
-    font-size: 3rem;
-    line-height: 1.4;
-    margin-top: 10rem;
-  }
-=======
 .product_box li a:hover {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.5rem;
 }
-@media screen and (max-width: 1000px) {
-    .product_box li:hover .product_list{
-        font-size: 1.5rem;
-    }
-    .product_box li strong{
-        font-weight: 500;
-    }
-    .product_wrap h2{
-        font-size: 3rem;
-        line-height: 4rem;
-    }
-}
-@media screen and (max-width: 770px) {
-    .product_wrap{
-        text-align: center;
-    }
-    .product_wrap .puick_product{
-        display: block;
-    }
-    .product_box li{
-        display: none;
-    }
-    .product_wrap h2{
-        margin-top: 50%;
-        margin-bottom: 2.5%;
-    }
-    .product_wrap a{
-        display: block;
-    }
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
-}
-
 /* esg */
 .esg_wrap{
     height: 200vh;
-    min-width: 61rem;
 }
 .esg_intro{
     position: relative;
@@ -607,16 +498,12 @@ footer>*{
 .esg_intro p{
     margin-bottom: 2rem;
 }
-@media screen and (max-width: 1210px) {
+@media screen and (max-width: 1625px) {
     .intro_content {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }
-@media screen and (max-width: 810px) {
-    .intro_content {
-        font-size: 1.5rem;
-    }
-}
+
 /* .esg_box */
 .esg_box{
     display: flex;
@@ -631,6 +518,7 @@ footer>*{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    /* display: none; */
     position: absolute;
     top: 0; left: 0;
     opacity: 0;
@@ -645,9 +533,6 @@ footer>*{
     flex-direction: column;
     justify-content: space-between;
     width: 50vw;
-}
-.esg_content>*{
-    min-width: 66rem;
 }
 .esg_content span{
     font-size: 3rem;
@@ -672,20 +557,14 @@ footer>*{
     font-size: 3.5rem;
 }
 .esg_content div p{
-    height: 10rem;
+    height: 100px;
     line-height: 3.3rem;
     font-size: 1.8rem;
 }
-@media screen and (max-width: 960px) {
-    .esg_content div p{
-        line-height: 3rem;
-        font-size: 1.3rem;
-    }
-}
+
+
 /* news */
-.news_wrap{
-    min-width: 50rem;
-}
+
 .news_wrap .news_swiper{
     overflow: hidden;
 }
@@ -712,23 +591,10 @@ footer>*{
     height: 100%;
     padding-bottom: 10%;
     color: #FFF;
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-weight: 600;
     background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 90%);
-<<<<<<< HEAD
-    opacity: 0;
-    transform: translateY(20px); /* 아래에서 올라오듯 */
-    transition: all 0.4s ease;
-    pointer-events: none; /* 클릭 막기 */
-}
-.news_swiper .swiper-slide:hover span {
-  opacity: 1;
-  transform: translateY(0);
-}
-=======
 }
 
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 .news_wrap .news_swiper{
     position: relative;
 }
@@ -742,14 +608,7 @@ footer>*{
 .swiper-pagination-progressbar-fill {
     background-color: rgba(0,0,0,0.3) !important;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 /* recruit */
-.recruit_wrap{
-    min-width: 63rem;
-}
 .recruit_wrap h2{
     color: #FFF;
     padding-bottom: 5rem;
@@ -759,7 +618,7 @@ footer>*{
     transition: 0.8s;
 }
 .recruit_wrap .recruit_content{
-    color: #a3a3a3;
+    color: #FFF;
     display: flex;
     justify-content: space-between;
 }
@@ -771,10 +630,7 @@ footer>*{
     width: 39rem;
     height: 50rem;
 }
-.recruit_wrap .recruit_content a:hover{
-    color: #FFF;
-    transition: all 0.6s;
-}
+
 .recruit_wrap .recruit_content span{
     font-size: 4rem;
     font-weight: 500;
@@ -784,90 +640,31 @@ footer>*{
     text-align: center;
     line-height: 2rem;
 }
-<<<<<<< HEAD
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20rem; /* 더 크게 */
-    height: 20rem;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.6); /* 연한 흰색 배경 */
-    color: #000; /* 커서 위에 보이는 글자색이 블랙으로 보이도록 */
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    mix-blend-mode: difference; /* 필요시 대비 효과 */
+.recruit_wrap .recruit_content a:hover span{
+    font-size: 5rem;
+    transition: all 0.5s;
 }
 
-/* a 태그 위에 올렸을 때 커서 스타일 변경 */
-.recruit_content a:hover ~ .custom-cursor {
-    width: 6rem;
-    height: 6rem;
-    background-color: rgba(255, 255, 255, 0.7); /* 호버 시 색상 변경 */
-}
-=======
-
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
-@media screen and (max-width: 1360px) {
-    .recruit_wrap .recruit_content span {
-        font-size: 3rem;
-    }
-    .recruit_wrap .recruit_content p{
-        font-size: 1.2rem;
-    }
-}
-@media screen and (max-width: 1000px) {
-    .recruit_wrap .recruit_content {
-        flex-wrap: wrap;
-    }
-    .recruit_wrap .recruit_content a {
-        width: 50%;
-        height: 30vh;
-    }
-} 
 /* qmenu */
 .qmenu_wrap{
-    min-width: 56rem;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex; /* 자식 정렬을 위해 flex 사용 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
 }
 .qmenu_box{
     display: grid;
     gap: 3rem;
     grid-template-columns: 1.4fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 120rem; 
+    width: 150rem; 
 }
 .qmenu_box div{
     border-radius: 1.5rem;
 }
-<<<<<<< HEAD
-.qmenu_item {
-  position: relative;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* x, y, blur, 색상 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 1.5rem;
-}
-.qmenu_item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
-}
-.qmenu_box .qmenu_con1{
-    grid-row: 1 / span 2;
-    height: 50rem;
-    background-image: url(../img/category.jpg);
-    background-size: cover;         /* 영역에 딱 맞게 채움 (잘림 가능) */
-    background-position: center;    /* 가운데 정렬 */
-    background-repeat: no-repeat;   /* 반복 제거 */
-=======
 .qmenu_box .qmenu_con1{
     grid-row: 1 / span 2;
     height: 50rem;
     background: #0E3663;
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 }
 .qmenu_box .qmenu_con2{
     background: #5978A9;
@@ -886,53 +683,24 @@ footer>*{
     display: block; 
     width: 100%; 
     height: 100%;
-    padding: 3rem;
+    padding: 5rem;
 }
-.qmenu_box div strong{  
-    font-size: 3rem;
-    font-weight: 500;
+.qmenu_box div strong{
+    font-size: 3.8rem;
+    font-weight: 600;
     color: #FFF;
 }
-<<<<<<< HEAD
-.qmenu_box .qmenu_con1 strong{
-    color: #000;
+.qmenu_box div img{
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    width: 12rem;
+    height: 12rem;
+    display: inline;
 }
-=======
->>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
+.qmenu_box div:first-child img{
+    width: 28rem;
+    height: 28rem;
+}
 
-@media screen and (max-width: 1280px) {
-    .qmenu_box{
-        gap: 2rem;
-        grid-template-columns: 1fr 1fr 1fr;
-        width: 90rem; 
-    }
-    .qmenu_box div strong{  
-        font-size: 2rem;
-        font-weight:400;
-    }
-}
-@media screen and (max-width: 930px) {
-    .qmenu_box {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .qmenu_box .qmenu_con1 {
-        grid-column: 1 / span 2;
-        height: 28rem;
-    }
-    .qmenu_box > div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 15rem;
-    }
-    .qmenu_box div strong {  
-        font-size: 2rem;
-        font-weight: 400;
-    }
-}
 

@@ -1,6 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
+<<<<<<< HEAD
 
 document.querySelectorAll("section h2").forEach(h2 => {
   gsap.from(h2, {
@@ -17,6 +18,8 @@ document.querySelectorAll("section h2").forEach(h2 => {
 });
 
 
+=======
+>>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 const header = document.querySelector('header');
 const gnbDep1Items = document.querySelectorAll('#gnb .dep1 > li');
 
@@ -80,6 +83,7 @@ allmenuOpenBtn.addEventListener('click', function() {
 allmenuCloseBtn.addEventListener('click', function() {
     allmenu.style.display = 'none'
 })
+<<<<<<< HEAD
 
 // ✅ product_wrap 요소 선택 (스크롤 트리거용)
 const productSection = document.querySelector(".product_wrap");
@@ -126,6 +130,47 @@ gsap.to(".intro_content", {
 });
 
 
+=======
+/* esg intro */
+gsap.set('.intro_content', { y: 100, opacity: 0 });
+
+gsap.to('.intro_content', {
+    y: 0,
+    opacity: 1,
+    duration:2,
+    scrollTrigger: {
+        trigger: '.intro_content',
+        start: 'top 100%',
+        end: 'bottom 20%',
+        toggleActions: "play none none reverse",
+        onEnter: () => {
+            // 배경색 부드럽게 흰색으로 변경
+            gsap.to('.esg_intro', {
+                backgroundColor: '#ffffff',
+                duration: 0.5
+            });
+            // 글자 색도 부드럽게 어두운 회색으로 변경
+            gsap.to('.intro_content p, .intro_content strong', {
+                color: '#111',
+                duration: 0.2
+            });
+        },
+        onLeaveBack: () => {
+            // 배경색 다시 원래 색으로 (짙은 파랑)
+            gsap.to('.esg_intro', {
+                backgroundColor: '#0c1b36',
+                duration: 0.2
+            });
+            // 글자 색 다시 흰색으로
+            gsap.to('.intro_content p, .intro_content strong', {
+                color: '#fff',
+                duration: 0.2
+            });
+        }
+    },
+    ease: "power2.out"
+});
+>>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 /* esg */
 const esgImg = document.querySelectorAll('.esg_img img')
 const esgCon = document.querySelectorAll('.esg_content div')
@@ -201,6 +246,7 @@ const newsSwiper = new Swiper('.news_swiper', {
         }
     }
 })
+<<<<<<< HEAD
 
 gsap.from(".news_swiper", {
   scrollTrigger: {
@@ -227,10 +273,13 @@ gsap.utils.toArray(".news_swiper .swiper-slide").forEach((slide, index) => {
     ease: "power2.out"
   });
 });
+=======
+>>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
 /* Recruit */
 function chBack(a){
     document.querySelector('.recruit_wrap').style.background = `url(./img/recruit${a}.png) no-repeat`;
 }
+<<<<<<< HEAD
 gsap.utils.toArray(".recruit_content a").forEach((item, index) => {
   gsap.from(item, {
     scrollTrigger: {
@@ -305,3 +354,6 @@ const inRecruit = recruitSection.contains(e.target);
       cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
     });
   });
+=======
+
+>>>>>>> aa624156ee057ad2dceaad0397631d27db59028d
