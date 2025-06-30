@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>벽산</title>
+    <link rel="icon" href="img/favicon.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- java script -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="#"><span class="blind">벽산</span></a></h1>
+            <nav id="gnb">
+                <ul class="dep1">
+                    <li><a href="#">벽산소개</a>
+                        <ul class="dep2">
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">인사말</a></li>
+                            <li><a href="#">벽산 70년사</a></li>
+                            <li><a href="#">연혁</a></li>
+                            <li><a href="#">벽산네트워크</a></li>
+                            <li><a href="#">아이디어제안</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">제품소개</a>
+                        <ul class="dep2">
+                            <li><a href="#">천장재</a></li>
+                            <li><a href="#">단열재</a></li>
+                            <li><a href="#">내장재</a></li>
+                            <li><a href="#">외장재</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">지속가능경영</a>
+                        <ul class="dep2">
+                            <li><a href="#">지속가능경영</a></li>
+                            <li><a href="#">환경경영</a></li>
+                            <li><a href="#">인권사회경영</a></li>
+                            <li><a href="#">안전보건경영</a></li>
+                            <li><a href="#">거버넌스</a></li>
+                            <li><a href="#">사이버제보</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">사이버홍보실</a>
+                        <ul class="dep2">
+                            <li><a href="#">벽산뉴스</a></li>
+                            <li><a href="#">CI소개</a></li>
+                            <li><a href="#">벽산사보도담터</a></li>
+                            <li><a href="#">수상실적</a></li>
+                            <li><a href="#">벽산활동</a></li>
+                            <li><a href="#">벽산동호회</a></li>
+                            <li><a href="#">투자정보</a></li>
+                            <li><a href="#">홍보영상</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">채용정보</a>
+                        <ul class="dep2">
+                            <li><a href="#">벽산인재상</a></li>
+                            <li><a href="#">HR제도</a></li>
+                            <li><a href="#">채용절차</a></li>
+                            <li><a href="#">채용문의</a></li>
+                            <li><a href="#">신입인터뷰</a></li>
+                            <li><a href="#">벽산테레비</a></li>
+                            <li><a href="#">인재상시채용</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">고객센터</a>
+                        <ul class="dep2">
+                            <li><a href="#">자료실</a></li>
+                            <li><a href="#">제품카다로그</a></li>
+                            <li><a href="#">자주묻는질문</a></li>
+                            <li><a href="#">제품문의처</a></li>
+                            <li><a href="#">열관류율계산</a></li>
+                            <li><a href="#">온라인상담</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="util">
+                <div class="lang_wrap">
+                    <button>KOR <i class="ri-arrow-down-s-fill"></i></button>
+                    <ul>
+                        <li><a href="#">KOR</a></li>
+                        <li><a href="#">ENG</a></li>
+                    </ul>
+                </div>
+                <div class="search_wrap">
+                    <button><span class="blind">검색창열기</span><i class="ri-search-line"></i></button>
+                </div>
+                <div class="allmenu_wrap">
+                    <button class="btn_allmenu_open"><i class="ri-menu-3-line"></i>
+                    <span class="blind">전체메뉴 보기</span>
+                    </button>          
+                </div>
+                <div class="search_popup">
+                    <form>
+                        <input type="text" placeholder="필요한 정보를 검색해보세요.">
+                        <button type="submit">
+                            <i class="ri-search-line"></i>
+                            <span class="blind">검색하기</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="allmenu_popup">   
+                    
+                    <a href="#" class="allmenu_logo"><img src="img/logo_big2.png" alt="logo"></a>
+                    <ul class="dep1">
+                            <li><a href="#">벽산소개</a>
+                                <ul class="dep2">
+                                    <li><a href="#">회사소개</a>
+                                        <ul class="dep3">
+                                            <li><a href="#">21C경영</a></li>
+                                            <li><a href="#">미션/비전</a></li>
+                                            <li><a href="#">경영혁신</a></li>
+                                            <li><a href="#">조직구성</a></li>
+                                            <li><a href="#">관계사소개</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">인사말</a></li>
+                                    <li><a href="#">벽산 70년사</a></li>
+                                    <li><a href="#">연혁</a></li>
+                                    <li><a href="#">벽산네트워크</a></li>
+                                    <li><a href="#">사업아이디어제안</a></li>
+                                    <li><a href="#">오시는길</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">제품소개</a>
+                                <ul class="dep2">
+                                    <li><a href="#">천장재</a>
+                                        <ul class="dep3">
+                                            <li><a href="#">시스톤</a></li>
+                                            <li><a href="#">이지톤</a></li>
+                                            <li><a href="#">석고텍스</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">단열재</a>
+                                        <ul class="dep3">
+                                            <li><a href="#">그라스울</a></li>
+                                            <li><a href="#">그라스울워터프리</a></li>
+                                            <li><a href="#">미네랄울</a></li>
+                                            <li><a href="#">아이소핑크</a></li>
+                                            <li><a href="#">BVIP진공단열재</a></li>
+                                            <li><a href="#">세라믹울</a></li>
+                                            <li><a href="#">우레탄보드</a></li>
+                                            <li><a href="#">우레탄스프레이폼</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">내장재</a>
+                                        <ul class="dep3">
+                                            <li><a href="#">석고보드</a></li>
+                                            <li><a href="#">CRC보드</a></li>
+                                            <li><a href="#">클릭월</a></li>
+                                            <li><a href="#">벤트월</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">외장재</a>
+                                        <ul class="dep3">
+                                            <li href="#">베이스패널</li>
+                                            <li href="#">에너프리</li>
+                                            <li href="#">테라솔리드</li>
+                                            <li href="#">패널텍</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#">지속가능경영</a>
+                                <ul class="dep2">
+                                    <li><a href="#">지속가능경영</a></li>
+                                    <li><a href="#">환경경영</a></li>
+                                    <li><a href="#">인권사회경영</a></li>
+                                    <li><a href="#">안전보건경영</a></li>
+                                    <li><a href="#">거버넌스</a></li>
+                                    <li><a href="#">사이버제보</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">사이버홍보실</a>
+                                <ul class="dep2">
+                                    <li><a href="#">벽산뉴스</a></li>
+                                    <li><a href="#">CI소개</a></li>
+                                    <li><a href="#">벽산 사보 도담터</a></li>
+                                    <li><a href="#">수상실적</a></li>
+                                    <li><a href="#">벽산활동</a></li>
+                                    <li><a href="#">벽산동호회</a></li>
+                                    <li><a href="#">투자정보</a>
+                                        <ul class="dep3">
+                                            <li><a href="#">재무정보</a></li>
+                                            <li><a href="#">공시정보</a></li>
+                                            <li><a href="#">정자공고</a></li>
+                                            <li><a href="#">사업보고서 및 감사보고서</a></li>
+                                            <li><a href="#">주가정보</a></li>
+                                            <li><a href="#">IR정보</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">홍보영상</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">채용정보</a>
+                                <ul class="dep2">
+                                    <li><a href="#">벽산인재상</a></li>
+                                    <li><a href="#">HR제도</a></li>
+                                    <li><a href="#">채용절차</a></li>
+                                    <li><a href="#">채용문의</a></li>
+                                    <li><a href="#">신입인터뷰</a></li>
+                                    <li><a href="#">벽산테레비</a></li>
+                                    <li><a href="#">우수인재 상시채용</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">고객센터</a>
+                                <ul class="dep2">
+                                    <li><a href="#">자료실</a></li>
+                                    <li><a href="#">제품카다로그</a></li>
+                                    <li><a href="#">자주묻는질문</a></li>
+                                    <li><a href="#">제품문의처</a></li>
+                                    <li><a href="#">열관류율계산</a></li>
+                                    <li><a href="#">온라인상담</a></li>
+                                </ul>
+                            </li>
+                    </ul>
+                    <button class="btn_allmenu_close">
+                        <i class="ri-close-fill"></i>
+                        <span class="blind">전체메뉴닫기</span>
+                    </button>
+                </div>
+            </div>            
+        </div>
+    </header>
+    <!-- main -->
+    <main>
+        <!-- main_wrap -->
+        <div class="main_wrap" >
+            <div class="main_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><video src="./img/mainvideo2.mp4" autoplay muted loop></video><p class="main_txt">벽산의 가치를 담은 공간으로<br>새로운 시대를 연다.</p></div>
+                    <div class="swiper-slide"><video src="./img/mainvideo3.mp4" autoplay muted loop></video><p class="main_txt">벽산의 새로운 비전<br>공간에 'ZERO'를 더한다.</p></div>
+                    <div class="swiper-slide"><video src="./img/mainvideo1.mp4" autoplay muted loop></video><p class="main_txt">새로운 길,<br>벽산이 가면 길이 됩니다.</p></div>
+                </div>
+                <div class="main_controls">
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper_btn_prev"></div>
+                    <div class="swiper_btn_next"></div>
+                </div>
+            </div>
+
+        </div> 
+        <!-- product_wrap -->
+        <section class="product_wrap">
+            <div class="container">
+                <h2><span>건축자재 그 이상의 세계</span><br>벽산의 제품을 소개합니다.</h2>
+                <a href="#" class="puick_product">바로가기<i class="ri-arrow-right-up-line"></i></a>
+                <ul class="product_box">
+                        <li class="active">
+                            <div class="product_img">
+                                <img src="./img/product1.png" alt="">
+                            </div>
+                            <a href="#" class="product_menu"><strong>천장재</strong></a>
+                            <div class="product_list">
+                                <a href="#">#시스톤</a>
+                                <a href="#">#이지톤</a>
+                                <a href="#">#석고텍스</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product_img">
+                                <img src="./img/product2.png" alt="">
+                            </div>
+                            <a href="#" class="product_menu"><strong>단열재</strong></a>
+                            <div class="product_list">
+                                <a href="#">#글라스울</a>
+                                <a href="#">#글라스울워터프리</a>
+                                <a href="#">#미네랄울</a>
+                                <a href="#">#아이소핑크</a>
+                                <a href="#">#BVIP진공단열재</a>
+                                <a href="#">#세라믹울</a>
+                                <a href="#">#우레탄보드</a>
+                                <a href="#">#우레탄스프레이폼</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product_img">
+                                <img src="./img/product3.png" alt="">
+                            </div>
+                            <a href="#" class="product_menu"><strong>내장재</strong></a>
+                            <div class="product_list">
+                                <a href="#">#석고보드</a>
+                                <a href="#">#CRC보드</a>
+                                <a href="#">#클릭월</a>
+                                <a href="#">#벤트월</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product_img">
+                                <img src="./img/product4.png" alt="">
+                            </div>
+                            <a href="#" class="product_menu"><strong>외장재</strong></a>
+                            <div class="product_list">
+                                <a href="#">#베이스패널</a>
+                                <a href="#">#에너프리</a>
+                                <a href="#">#테라솔리드</a>
+                                <a href="#">#패널텍</a>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+        </section>
+        <!-- esg_wrap -->
+        <section class="esg_wrap">
+            <div class="esg_intro">     
+                <div class="intro_content">
+                    <!-- <img src="img/logo_maker.png" alt=""> -->
+                    <p>벽산은 지속가능한 성장과 사업의 영위를 위하여</p>
+                    <p>ESG 경영을 적극적으로 도입하여</p>
+                    <p>모든 사업 부분에 적용하여 나가고자 합니다.</p>
+                </div>
+            </div>
+            <div class="esg_box">
+                <div class="esg_img">
+                    <img class="active" src="img/esg1.jpg" alt="">
+                    <img src="img/esg2.jpg" alt="">
+                    <img src="img/esg3.jpg" alt="">
+                    <img src="img/esg4.jpg" alt="">
+                    <img src="img/esg5.jpg" alt="">
+                </div>
+                <div class="esg_content">
+                    <div class="esg_con1">
+                        <a href="#">
+                            <span>지속가능경영</span>
+                            <p>Sustainable management</p>
+                            <p>지속가능한 성장과사업의 영위를 위하여<br>
+                                ESG경영을 적극적으로 도입하여 나가고자 합니다.</p>
+                        </a>
+                    </div>
+                    <div class="esg_con2">
+                        <a href="#">
+                            <span>환경경영</span>
+                            <p>environmental management</p>
+                            <p>건강하고 깨끗한 내일을 위해 친환경 경영을<br>
+                                지속적으로 추진해 나갈 것을 약속드립니다.</p>
+                        </a>
+                    </div>
+                    <div class="esg_con3">
+                        <a href="#">
+                            <span>인권사회경영</span>
+                            <p>Human Rights Social Management</p>
+                            <p>벽산은 인권존중의 목표아래<br>함께 잘 사는 기업문화를 조성하고 있습니다.</p>
+                        </a>
+                    </div>
+                    <div class="esg_con4">
+                        <a href="#">
+                            <span>안전보건경영</span>
+                            <p>Safety and Health Management</p>
+                            <p>사회적 책임과 근로자의 안전보건문화<br>정착을 위하여 최선의 노력을 다하겠습니다.</p>
+                        </a>
+                    </div>
+                    <div class="esg_con5">
+                        <a href="#">
+                            <span>거버넌스</span>
+                            <p>Governance</p>
+                            <p>윤리경영/준법경영을 통하여<br>
+                                부패를 방지하고 깨끗한 기업문화를 조성하고 있습니다.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- news_wrap -->
+        <section class="news_wrap">
+            <div class="container">
+                <h2><a href="#">벽산을 움직이는 이야기들</a></h2>
+                <div class="news_swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="./img/news1.jpg" alt="">
+                                <span>벽산, 대한민국 스마트워크 최우수상 수상</span>
+                                </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="./img/news2.jpg" alt=""><span>벽산, 십대여성 진로체험축제 후원 및 참여</span>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="./img/news3.jpg" alt=""><span>벽산, 10대 여성 자립시설 환경 개선 봉사</span>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="./img/news4.jpg" alt=""><span>벽산, 화스너제조 및 유통 전문기업 인수  </span>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="./img/news5.jpg" alt=""><span>벽산, 이화여자대학교 늘봄사업단 MOU 체결</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+        <!-- recruit_wrap -->
+        <section class="recruit_wrap">
+            <div class="container">
+                <h2><a href="#">당신의 성장이<br>곧 벽산의 힘입니다</a></h2>
+                <div class="recruit_content">
+                    <a href="#" onmouseover="chBack('1')">
+                        <span>벽산인터뷰</span>
+                        <p>신입 벽산인들의 인터뷰를 통해<br>생생한 벽산의 이야기를 들어보세요.</p>
+                    </a>
+                    <a href="#" onmouseover="chBack('2')">
+                        <span>HR제도</span>
+                        <p>직원들의 삶의 질 향상을 위한<br>벽산의 다양한 제도를 알아보세요.</p>
+                    </a>
+                    <a href="#" onmouseover="chBack('3')">
+                        <span>채용절차</span>
+                        <p>벽산 지원 방법 및 기간<br>필요서류와 전형방법을 확인해보세요.</p>
+                    </a>
+                    <a href="#" onmouseover="chBack('4')">
+                        <span>채용문의</span>
+                        <p>채용에 대한 자세한 내용은<br>벽산 채용담당자에게 문의해보세요.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- qmenu_wrap -->
+        <section class="qmenu_wrap"> 
+            <div class="container">
+                <div class="qmenu_box">
+                    <div class="qmenu_con1 qmenu_item"><a href="#"><strong>제품카다로그</strong></a></div>
+                    <div class="qmenu_con2 qmenu_item"><a href="#"><strong>제품자료실</strong></a></div>
+                    <div class="qmenu_con3 qmenu_item"><a href="#"><strong>열관류율계산</strong></a></div>
+                    <div class="qmenu_con4 qmenu_item"><a href="#"><strong>투자정보</strong></a></div>
+                    <div class="qmenu_con5 qmenu_item"><a href="#"><strong>아이디어제안</strong></a></div>
+                </div>
+            </div>
+        </section> 
+    </main>
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="footer_info">
+                <a href="#"><img src="img/logo_ver2.png" alt=""></a>
+                <div>
+                    <address>
+                        (주)벽산 &boxv; 서울 중구 퇴계로 307 광희빌딩(10F/14F) <br>
+                        대표전화 1588-1116 &boxv; TEL 02-2260-6114 &boxv; FAX 02-2260-6058
+                    </address>                    
+                    <p>COPYRIGHT ⓒ BYUCKSAN co.,ltd. ALL RIGHTS RESERVED.</p>
+                </div>
+            </div>
+            <div class="footer_link">
+                <a href="#"><span class="blind">페이스북</span><i class="ri-youtube-fill"></i></a>
+                <a href="#"><span class="blind">유튜브</span><i class="ri-facebook-box-fill"></i></a>
+            </div>
+        </div>
+    </footer>
+    <div class="custom-cursor"></div>
+</body>
+</html>
