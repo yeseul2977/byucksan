@@ -16,7 +16,6 @@ document.querySelectorAll("section h2").forEach(h2 => {
   });
 });
 
-
 const header = document.querySelector('header');
 const gnbDep1Items = document.querySelectorAll('#gnb .dep1 > li');
 
@@ -267,9 +266,9 @@ gsap.utils.toArray(".news_swiper .swiper-slide").forEach((slide, index) => {
   });
 });
 /* Recruit */
-function chBack(a){
+/* function chBack(a){
     document.querySelector('.recruit_wrap').style.background = `url(./img/recruit${a}.png) no-repeat`;
-}
+} */
 gsap.utils.toArray(".recruit_content a").forEach((item, index) => {
   gsap.from(item, {
     scrollTrigger: {
@@ -300,31 +299,30 @@ gsap.utils.toArray(".qmenu_item").forEach((item, index) => {
   });
 });
 
-
-
 const cursor = document.querySelector(".custom-cursor");
-const recruitSection = document.querySelector(".recruit_wrap");
-const links = recruitSection.querySelectorAll(".recruit_content a");
+  const recruitSection = document.querySelector(".recruit_wrap");
+  const links = recruitSection.querySelectorAll(".recruit_content a");
 
-let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
 
-// 커서 숨김 기본 설정
-cursor.style.display = "none";
+  // 기본은 커서 숨김
+  cursor.style.display = "none";
 
-// recruit 영역 위에 있을 때만 동작
-document.addEventListener("mousemove", (e) => {
-const inRecruit = recruitSection.contains(e.target);
-    
+  // recruit 영역 위에 있을 때만 보이고 따라다님
+  document.addEventListener("mousemove", (e) => {
+    const inRecruit = recruitSection.contains(e.target);
+
     if (inRecruit) {
-      cursor.style.display = "block";  // 보여주기
+      cursor.style.display = "flex";
       mouseX = e.clientX;
       mouseY = e.clientY;
     } else {
-      cursor.style.display = "none";   // recruit 영역 벗어나면 숨기기
+      cursor.style.display = "none";
     }
   });
 
+  // 부드럽게 커서 이동
   function animateCursor() {
     cursorX += (mouseX - cursorX) * 0.2;
     cursorY += (mouseY - cursorY) * 0.2;
@@ -333,14 +331,3 @@ const inRecruit = recruitSection.contains(e.target);
   }
   animateCursor();
 
-  // hover 시 변화
-  links.forEach(link => {
-    link.addEventListener("mouseenter", () => {
-      cursor.style.backgroundColor = "rgba(255,255,255)";
-      cursor.style.transform += " scale(1.4)";
-    });
-    link.addEventListener("mouseleave", () => {
-      cursor.style.backgroundColor = "rgba(255,255,255,0.3)";
-      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
-    });
-  });
