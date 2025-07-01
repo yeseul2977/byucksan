@@ -727,7 +727,6 @@ footer>*{
 .recruit_wrap .recruit_content{
     display: flex;
     justify-content: space-between;
-    
 }
 .recruit_wrap .recruit_content a{
     display: flex;
