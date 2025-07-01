@@ -265,10 +265,8 @@ gsap.utils.toArray(".news_swiper .swiper-slide").forEach((slide, index) => {
     ease: "power2.out"
   });
 });
+
 /* Recruit */
-/* function chBack(a){
-    document.querySelector('.recruit_wrap').style.background = `url(./img/recruit${a}.png) no-repeat`;
-} */
 gsap.utils.toArray(".recruit_content a").forEach((item, index) => {
   gsap.from(item, {
     scrollTrigger: {
