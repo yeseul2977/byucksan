@@ -225,7 +225,7 @@ const newsSwiper = new Swiper('.news_swiper', {
             slidesPerView: 1,
             spaceBetween: 20
         },
-        700: {  
+        500: {  
             slidesPerView: 2,
             spaceBetween: 40
         },
