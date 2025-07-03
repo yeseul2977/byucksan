@@ -11,7 +11,8 @@ body {
 }
 section{
     height: calc(100vh - 10rem);
-    min-height: 85rem;
+    min-height: 70rem;
+    min-width: 35rem;
 }
 h2 {
     padding: 7rem 0; 
@@ -35,12 +36,12 @@ h2 {
 
 /* header */
 header {
-    min-width: 55.5rem;
     position: fixed;
     left: 0;
     right: 0;
     z-index: 9000;  
     color: #FFF;
+    min-width: 35rem;
 }
 header.scroll{
     background: #FFF;
@@ -111,23 +112,6 @@ header #gnb .dep1>li{
     min-width: 100%; /* 최소 너비는 유지 */
     font-size: 1.5rem;
 }
-@media screen and (max-width: 1430px) {
-    header #gnb .dep1>li>a{
-        padding: 3rem 1rem;
-        font-size: 1.5rem;
-    }
-    header #gnb .dep2 {
-        font-size: 1.2rem;
-    }
-}
-@media screen and (max-width: 1180px) {
-    header #gnb .dep1{
-        display: none;
-    }
-    .container{
-        padding: 0 10rem;
-    }    
-}
 
 /* header - util */
 header .util{
@@ -166,7 +150,35 @@ header .util{
     padding: 0.7rem;
     display: block;
 }
-
+@media screen and (max-width: 1430px) {
+    header #gnb .dep1>li>a{
+        padding: 3rem 1rem;
+        font-size: 1.5rem;
+    }
+    header #gnb .dep2 {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 1180px) {
+    header #gnb .dep1{
+        display: none;
+    }
+    .container{
+        padding: 0 5rem;
+    }    
+}
+@media screen and (max-width: 560px) {
+    .container{
+        padding: 0 5rem;
+    }    
+    header h1 a{
+        width: 10rem;
+    }
+    header .util{
+        gap: 2rem;
+        font-size: 1.5rem;
+    }
+}
 /* header - search */
 .search_popup {
     position: absolute;
@@ -195,18 +207,21 @@ header .util{
     color: #FFF;
     font-size: 2rem;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 660px) {
     .search_popup form {
-        gap: 2rem;
+        gap: 1rem;
     }
     .search_popup form input{
-        width: 40rem;
+        width: 30rem;
         height: 4rem;
     }
     .search_popup form button {
         height: 4rem;
         width: 4rem;
         font-size: 1.5rem;
+    }
+    input::placeholder {
+        font-size: 12px;
     }
 }
 /* header - allmenu */
@@ -221,12 +236,15 @@ header .util{
     top: 0;
     left: 0;
     width: 100vw;
-    min-width: 115.2rem;
     background: #ffffff;
     
 }
 .allmenu_popup .allmenu_logo{
+    display: block;
     margin-top: 2rem;
+}
+.allmenu_popup .allmenu_logo img{
+    width: 5rem;
 }
 .allmenu_popup .dep1{
     display: flex;
@@ -235,16 +253,16 @@ header .util{
 .allmenu_popup .dep1>li>a{
     display: block;
     border-bottom: 0.2rem solid rgb(0, 56, 7);
-    padding: 2.5rem;
+    padding: 1rem;
     color: #000;
 }
 .allmenu_popup .dep1>li{
     text-align: center;
     font-weight: 600;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
 }
 .allmenu_popup .dep2{
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 }
 .allmenu_popup .dep2>li{
     font-weight: 400;
@@ -254,12 +272,12 @@ header .util{
     text-align: center;
 }
 .allmenu_popup .dep3{
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 .allmenu_popup .dep3>li{
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #4d4d4d;
 }
 .allmenu_popup button {
@@ -271,22 +289,56 @@ header .util{
     font-weight: 100;
     color: #353535;
 }
-@media screen and (max-width: 1450px) {
-    .allmenu_popup .allmenu_logo img{
+
+@media screen and (max-width: 1200px) {
+    .allmenu_popup {
+        flex-direction: row;
+        padding: 3rem;
+        overflow-y: auto;
+    }
+    .allmenu_popup .dep1 {
+        display: grid;
+        gap: 2rem 4rem;
+        width: 100%;
+        margin: 0 5rem;
+    }
+    .allmenu_popup .dep1 > li, .allmenu_popup .dep2 > li{
+        text-align: left;
+    }
+    .allmenu_popup .dep2,
+    .allmenu_popup .dep3 {  
         display: none;
+        padding-left: 3rem;
     }
-    .allmenu_popup .dep3>li{
-        font-size: 1rem;
-        margin-bottom: 0.7rem;
+    .allmenu_popup .dep2.active{
+        display: block;
     }
-    .allmenu_popup .dep3{
-        margin-top: 1rem;
+    .allmenu_popup .dep1 > li > a.allmenu_toggle::after {
+        content: "▼";
+        float: right;
+        transition: transform 0.5s ease;
     }
-    .allmenu_popup .dep2{
-        margin-top: 1.5rem;
+    .allmenu_popup .dep1 > li > a.allmenu_toggle.active::after {
+        transform: rotate(180deg); /* 화살표 반전 */
     }
-    .allmenu_popup .dep1>li{
-        font-size: 1.5rem;
+    .allmenu_popup .dep1 > li > a{
+        border-bottom: 0.1rem solid rgb(0, 56, 7);
+    }
+    .allmenu_popup button i{
+        font-size: 5rem;
+        font-weight: 100;
+        color: #353535;
+    }
+}
+@media screen and (max-width: 430px) {
+    .allmenu_popup .allmenu_logo{
+        width: 2rem;
+    }
+    .allmenu_popup .dep2 {  
+        padding-left: 0;
+    }
+    .allmenu_popup .dep2>li {  
+        font-size: 1.2rem;
     }
 }
 /* footer */
@@ -294,7 +346,6 @@ footer{
     border-top: 0.1rem solid #000;
     padding: 3rem 0;
     height: 15rem;
-    min-width: 78rem;
 }
 footer>*{
     display: flex;
@@ -328,7 +379,7 @@ footer>*{
 }
 /* main_wrap */
 .main_wrap{
-    min-width: 55.5rem;
+    min-width: 35rem;
 }
 .main_wrap .main_swiper {
     height: 100vh;
@@ -405,25 +456,30 @@ footer>*{
         font-weight: 500;
         line-height: 5rem;
     }
-    .main_wrap .swiper-pagination .progress {
-        width: 17rem;
+    
+}
+@media screen and (max-width: 560px) {
+    .main_wrap .swiper-slide .main_txt{
+        left: 5rem;
+        font-size: 2.5rem;
+        font-weight: 500;
+        line-height: 3rem;
     }
+    .main_wrap .swiper-pagination {
+        width: 15rem;
+    }
+    
 }
 
-
 /* product */
+
 .product_wrap{
-    /* background: rgb(9, 0, 62);  */
     background :#0c1b36;
     border-top: 0.1rem solid #646464;
     color: #FFF;
-    min-width: 55.5rem;
 }
 
-.product_wrap h2{
-    margin-bottom: 4rem;
-}
-.product_wrap .puick_product{
+.product_wrap .quick_product{
     display: none;
     font-size: 2rem;
 }
@@ -437,28 +493,28 @@ footer>*{
     width: 10rem;
     overflow: hidden;
     flex-grow: 1;
-    height: 45rem;
+    height: 80%;
     text-align: center;
     transition: all 1s;
 }
 .product_img{
-    width: 100%;
+    width: 95%;
     height: 35rem;
 }
 .product_box li strong{
     display: block;
     font-weight: 600;
     font-size: 3rem;
-    padding-top: 2rem;
+    margin-bottom: 50%;
 }
 .product_box li .product_list{
     display: none;
     flex-direction: column;
     gap: 2rem;
-    position: absolute;;
+    position: absolute;
     right: 7%;
     top: 30%;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .product_box li a{
     display: inline-block;
@@ -466,10 +522,10 @@ footer>*{
 .product_box li:hover{
     background :#FFF;
     color: #000;
-    flex-grow: 2.2;
+    flex-grow: 4;
 }
 .product_box li:nth-child(2):hover .product_list{
-    top: 10%;
+    top: 15%;
     right: 5%;
 }
 .product_box li:hover .product_img{
@@ -478,74 +534,38 @@ footer>*{
 .product_box li:hover .product_list{
     display: flex;  
 }
-@media screen and (max-width: 1610px) {
-    .product_wrap .puick_product_list {
-        display: none;
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 2rem;
-        background: #fff;
-        color: #000;
-        padding: 0.8rem 2rem;
-        border-radius: 0.8rem;
-        text-decoration: none;
-        transition: all 0.3s;
-        z-index: 10;
-    }
-    .product_box li:hover{
-        background :#FFF;
-        color: #000;
-        flex-grow: 2;
-    }
-    
-    .product_box li:hover .product_list {
-        display: none;
+@media screen and (max-width: 1500px) {
+    .product_box .product_img img{
+        height: 70%;
     }
 }
-
-@media screen and (max-width: 720px) {
-    .product_wrap .product_box {
-        display: none;
+@media screen and (max-width: 1100px) {
+    .product_wrap h2{
+        font-size: 3.5rem;
+        font-weight: 500;
+        line-height: 4rem;
+        padding: 3rem 0;
     }
-    .product_wrap .puick_product {
-        display: inline-block;
-        text-align: center;
-        margin: 0 auto;
-        font-size: 2rem;
-        background: #4d4d4d;
-        color: #FFF;
-        padding: 2rem 6rem;
-        border-radius: 1rem;
-        transition: background 0.5s ease;
-    }
-
-    .product_wrap .puick_product:hover {
-        background: #FFF;
-        color: #000;
-    }
-
-    .product_wrap {
-        text-align: center;
-    }
-
-    .product_wrap h2 {
-        font-size: 3rem;
-        line-height: 1.4;
-        margin-top: 10rem;
-    }
-    .product_box li a:hover {
-        background-color: rgba(255, 255, 255, 0.7);
-        border-radius: 0.5rem;
+    .product_box .product_img img{
+        height: 50%;
     }
 }
-
-
+@media screen and (max-width: 900px) {
+    .product_box li:hover .product_list{
+        display: none;
+    }
+    .product_box .product_img img{
+        height: 70%;
+    }
+}
+@media screen and (max-width: 900px) {
+    .product_img{
+        height: 25rem;
+    }
+}
 /* esg */
 .esg_wrap{
     height: 200vh;
-    min-width: 61rem;
 }
 .esg_intro{
     position: relative;
@@ -567,7 +587,10 @@ footer>*{
     color: #FFF;
 }
 .esg_intro p{
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+.esg_intro .quick_esg{
+    display: none;
 }
 @media screen and (max-width: 1210px) {
     .intro_content {
@@ -577,6 +600,9 @@ footer>*{
 @media screen and (max-width: 810px) {
     .intro_content {
         font-size: 1.5rem;
+    }
+    .esg_intro .quick_esg{
+        display: block;
     }
 }
 /* .esg_box */
@@ -616,7 +642,7 @@ footer>*{
     font-weight: 500;
 }
 .esg_content div{
-    height: 100px;
+    height: 10rem;
     width: 100%;
     overflow: hidden;
     transition: height 0.8s;
@@ -644,9 +670,14 @@ footer>*{
         font-size: 1.3rem;
     }
 }
+@media screen and (max-width: 810px) {
+    .esg_content div p{
+        line-height: 3rem;
+        font-size: 1.3rem;
+    }
+}
 /* news */
 .news_wrap{
-    min-width: 50rem;
 }
 .news_wrap .news_swiper{
     overflow: hidden;
@@ -686,8 +717,6 @@ footer>*{
     opacity: 1;
     transform: translateY(0);
 }
-
-
 .news_wrap .news_swiper{
     position: relative;
 }
@@ -709,7 +738,6 @@ footer>*{
 .recruit_wrap{
     position: relative;
     overflow: hidden;
-    min-width: 63rem;
 }
 .recruit_wrap .recruit_bg_video {
     position: absolute;
@@ -798,7 +826,6 @@ footer>*{
 } 
 /* qmenu */
 .qmenu_wrap{
-    min-width: 56rem;
     display: flex; 
     justify-content: center; 
     align-items: center; 

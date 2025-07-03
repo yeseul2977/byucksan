@@ -329,3 +329,26 @@ const cursor = document.querySelector(".custom-cursor");
   }
   animateCursor();
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggles = document.querySelectorAll(".allmenu_toggle");
+  
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", function (e) {
+        e.preventDefault(); // a 태그 이동 막기
+  
+        // 현재 활성화된 메뉴 접기
+        const currentActive = document.querySelector(".allmenu_toggle.active");
+        if (currentActive && currentActive !== toggle) {
+          currentActive.classList.remove("active");
+          const prevUl = currentActive.nextElementSibling;
+          if (prevUl) prevUl.classList.remove("active");
+        }
+  
+        // 클릭한 메뉴 펼치기
+        this.classList.toggle("active");
+        const submenu = this.nextElementSibling;
+        if (submenu) submenu.classList.toggle("active");
+      });
+    });
+  });
+  
