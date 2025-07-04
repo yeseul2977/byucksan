@@ -11,6 +11,11 @@ body {
     overscroll-behavior: none; /* 터치나 휠로 인한 튕김 방지 */
     
 }
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 section{
     height: calc(100vh - 10rem);
     min-width: 36rem;
@@ -522,7 +527,6 @@ footer>*{
 
 .product_wrap{
     background :#0c1b36;
-    border-top: 0.1rem solid #646464;
     color: #FFF;
 }
 
@@ -910,6 +914,7 @@ footer>*{
 
     }
 } 
+
 @media screen and (max-width: 600px) {
     .recruit_wrap h2{
         font-size: 3rem;
