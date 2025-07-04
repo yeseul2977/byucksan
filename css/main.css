@@ -4,28 +4,23 @@ html {
     overflow-x: hidden;
     font-size: 10px;
     scroll-behavior: auto;
+    max-width: 100%;
 }
 body {
     font-size: 1.6rem; color: #222;
     font-family: 'Noto Sans KR','suit','MalgunGothic', 'AppleSDGothic', sans-serif;
-    overscroll-behavior: none; /* 터치나 휠로 인한 튕김 방지 */
+    overscroll-behavior: none;
+    overflow-x: hidden;
+    max-width: 100%;
     
 }
-html, body{
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
 section{
-    height: calc(100vh - 10rem);
     min-width: 36rem;
     min-height: 70rem;
 }
-/* 모든 section(또는 해당 요소)에 적용 */
 section, .main_wrap {
-    scroll-margin-top: 10rem; /* header height만큼 여백 확보 */
+    scroll-margin-top: 10rem;
 }
-
 h2 {
     padding: 7rem 0; 
     font-size: 4.5rem;
@@ -33,7 +28,7 @@ h2 {
     line-height: 6rem;
 }
 .container {
-    padding: 0 15rem; /* 양쪽 여백 150px */
+    padding: 0 15rem;
 }
 .blind {
     display: block;
@@ -41,6 +36,7 @@ h2 {
     width: 1px;
     height: 1px;
 }
+
 /* display: none */
 .lang_wrap ul, .search_popup, .allmenu_popup{
     display: none;
@@ -120,8 +116,8 @@ header #gnb .dep1>li{
     gap: 2.5rem;
     top: 12rem;
     z-index: 1;
-    width: auto; /* 내용에 맞게 자동 */
-    min-width: 100%; /* 최소 너비는 유지 */
+    width: auto;
+    min-width: 100%; 
     font-size: 1.5rem;
 }
 
@@ -193,6 +189,7 @@ header .util{
         font-size: 1.5rem;
     }
 }
+
 /* header - search */
 .search_popup {
     position: absolute;
@@ -238,6 +235,7 @@ header .util{
         font-size: 12px;
     }
 }
+
 /* header - allmenu */
 .allmenu_wrap{
     position: relative;
@@ -333,7 +331,7 @@ header .util{
         transition: transform 0.5s ease;
     }
     .allmenu_popup .dep1 > li > a.allmenu_toggle.active::after {
-        transform: rotate(180deg); /* 화살표 반전 */
+        transform: rotate(180deg);
     }
     .allmenu_popup .dep1 > li > a{
         border-bottom: 0.1rem solid rgb(0, 56, 7);
@@ -431,7 +429,6 @@ footer>*{
     height: 100%;
     object-fit: cover;
 } 
-
 .main_wrap .main_swiper .main_txt{
     position: absolute;
     left: 15rem;
@@ -443,7 +440,6 @@ footer>*{
     opacity: 0;
     animation: fadeInText 1.2s ease-in-out 0.7s forwards;
 }
-
 @keyframes fadeInText {
     from {
         opacity: 0;
@@ -507,7 +503,6 @@ footer>*{
         line-height: 5rem;
         transition: all .8s;
     }
-    
 }
 @media screen and (max-width: 560px) {
     .main_wrap .swiper-slide .main_txt{
@@ -520,11 +515,9 @@ footer>*{
     .main_wrap .swiper-pagination {
         width: 15rem;
     }
-    
 }
 
 /* product */
-
 .product_wrap{
     background :#0c1b36;
     color: #FFF;
@@ -617,26 +610,22 @@ footer>*{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
-        justify-items: center; /* 내부 요소 가운데 정렬 */
+        justify-items: center; 
     }
-
     .product_wrap .product_box li {
-        width: 100%; /* 한 칸 차지 */
-        max-width: 18rem; /* 최대 너비 제한 */
-        height: auto; /* 높이 자동 조정 */
+        width: 100%;
+        max-width: 18rem;
+        height: auto;
     }
-
     .product_wrap .product_box li .product_img {
-        height: 18rem; /* 모바일에 맞는 이미지 높이 */
+        height: 18rem;
     }
-
     .product_wrap .product_box li strong {
         font-size: 1.5rem;
         margin-bottom: 2rem;
     }
-
     .product_wrap .product_box li .product_list {
-        display: none !important; /* 모바일에서는 제품 리스트 숨김 */
+        display: none !important;
     }
 }
 /* esg */
@@ -654,7 +643,7 @@ footer>*{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* 가운데 정렬 추가 */
+    transform: translate(-50%, -50%);
     text-align: center;
     font-size: 3rem;
     color: rgba(255, 255, 255, 1);
@@ -678,6 +667,7 @@ footer>*{
         display: block;
     }
 }
+
 /* .esg_box */
 .esg_box{
     display: flex;
@@ -885,14 +875,10 @@ footer>*{
     transform: translate(-50%, -50%);
     z-index: 50;
     transition: all 0.2s ease;
-    filter: blur(5px); /* 퍼짐을 좀 더 자연스럽게 */
-    background: radial-gradient(
-      rgba(255, 255, 255, 0.5) 0%,   /* 중앙은 거의 흰색 */
-      rgba(255, 255, 255, 0.2) 60%,  /* 중간은 투명해짐 */
-      rgba(255, 255, 255, 0.05) 100% /* 바깥은 거의 안보임 */
+    filter: blur(5px);
+    background: radial-gradient(rgba(255, 255, 255, 0.5) 0%,rgba(255, 255, 255, 0.2) 60%,rgba(255, 255, 255, 0.05) 100%
     );
 }
-
 @media screen and (max-width: 1360px) {
     .recruit_wrap .recruit_content span {
         font-size: 3rem;
@@ -911,10 +897,8 @@ footer>*{
     .recruit_wrap .recruit_content a {
         width: 50%;
         height: 30vh;
-
     }
 } 
-
 @media screen and (max-width: 600px) {
     .recruit_wrap h2{
         font-size: 3rem;
@@ -931,6 +915,7 @@ footer>*{
         display: none;
     }
 } 
+
 /* qmenu */
 .qmenu_wrap{
     display: flex; 
@@ -949,7 +934,7 @@ footer>*{
 }
 .qmenu_item {
     position: relative;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* x, y, blur, 색상 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 1.5rem;
 }
@@ -1041,4 +1026,3 @@ footer>*{
     }
     
 }
-

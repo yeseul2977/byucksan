@@ -1,12 +1,14 @@
+// ✅ GSAP 플러그인 등록 (ScrollTrigger와 ScrollToPlugin을 사용하기 위해)
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
 
+// ✅ 각 섹션의 제목(h2)에 스크롤 트리거 애니메이션 적용
 document.querySelectorAll("section h2").forEach(h2 => {
   gsap.from(h2, {
     scrollTrigger: {
       trigger: h2,
-      start: "top 50%", // h2가 화면 아래쪽 70%쯤 들어왔을 때
+      start: "top 50%",
       toggleActions: "play none none none"
     },
     opacity: 0,
@@ -16,15 +18,19 @@ document.querySelectorAll("section h2").forEach(h2 => {
   });
 });
 
+
+// ✅ 헤더 관련 이벤트 처리
 const header = document.querySelector('header');
 const gnbDep1Items = document.querySelectorAll('#gnb .dep1 > li');
 
-/* header mouse event*/
+// 마우스가 메뉴에 올라가면 header에 클래스 추가
 gnbDep1Items.forEach(function (item) {
     item.addEventListener('mouseenter', function () {
         header.classList.add('scroll');
         header.classList.add('on');
     });
+
+    // 마우스가 벗어나면 클래스 제거
     item.addEventListener('mouseleave', function (e) {
         if (!header.contains(e.relatedTarget)) {
             header.classList.remove('scroll');
@@ -32,56 +38,64 @@ gnbDep1Items.forEach(function (item) {
         }
     });
 });
-/* header 전체에서 벗어날 때도 다시 체크 */
+
+// 헤더 전체 영역에서 마우스 벗어났을 때도 처리
 header.addEventListener('mouseleave', function (e) {
     if (!header.contains(e.relatedTarget)) {
         header.classList.remove('scroll');
         header.classList.remove('on');
     }
 });
-/* header scroll event*/
+
+// 스크롤 위치에 따라 header에 'scroll' 클래스 토글
 window.addEventListener('scroll', function(){
     if(window.scrollY > 10){
-        header.classList.add('scroll')
+        header.classList.add('scroll');
     }else{
-        header.classList.remove('scroll')
-        main.style.display = `block`
+        header.classList.remove('scroll');
+        main.style.display = `block`;
     }
-}) 
-/* header - lang */
-const langBtn = document.querySelector('.lang_wrap button')
-const langList = document.querySelector('.lang_wrap ul')
-langBtn.addEventListener('click', function() {
-    langList.classList.toggle('active')
-})
-/* header - search */
-const searchBtn = document.querySelector('.search_wrap button')
-const searchBox = document.querySelector('.search_popup')
+});
 
+
+// ✅ 언어 선택 버튼 토글 기능
+const langBtn = document.querySelector('.lang_wrap button');
+const langList = document.querySelector('.lang_wrap ul');
+langBtn.addEventListener('click', function() {
+    langList.classList.toggle('active');
+});
+
+
+// ✅ 검색 버튼 클릭 시 검색창 열기/닫기
+const searchBtn = document.querySelector('.search_wrap button');
+const searchBox = document.querySelector('.search_popup');
 searchBox.style.display = 'none';
 searchBtn.addEventListener('click', function() {
-if(searchBox.style.display === 'none') {
-    searchBox.style.display = 'block'
-    header.classList.remove('on')
-} else {
-    searchBox.style.display = 'none'
-}
-})
-/* header - allmenu */
-const allmenuOpenBtn = document.querySelector('.allmenu_wrap')
-const allmenuCloseBtn = document.querySelector('.btn_allmenu_close')
-const allmenu = document.querySelector('.allmenu_popup')
+    if(searchBox.style.display === 'none') {
+        searchBox.style.display = 'block';
+        header.classList.remove('on');
+    } else {
+        searchBox.style.display = 'none';
+    }
+});
+
+
+// ✅ 전체메뉴 열기/닫기 버튼 기능
+const allmenuOpenBtn = document.querySelector('.allmenu_wrap');
+const allmenuCloseBtn = document.querySelector('.btn_allmenu_close');
+const allmenu = document.querySelector('.allmenu_popup');
 
 allmenuOpenBtn.addEventListener('click', function() {
     allmenu.style.display = 'flex';
-    header.classList.remove('on')
-})
+    header.classList.remove('on');
+});
 allmenuCloseBtn.addEventListener('click', function() {
-    allmenu.style.display = 'none'
-})
+    allmenu.style.display = 'none';
+});
 
+
+// ✅ 제품 섹션(product_box) 안에 있는 각 li 요소 애니메이션
 const productSection = document.querySelector(".product_wrap");
-
 gsap.utils.toArray(".product_box li").forEach((item, index) => {
   gsap.from(item, {
     scrollTrigger: {
@@ -97,7 +111,7 @@ gsap.utils.toArray(".product_box li").forEach((item, index) => {
 });
 
 
-/* esg wrap */
+// ✅ ESG intro 영역 배경과 텍스트 색상 변경 애니메이션
 gsap.to(".esg_intro", {
   backgroundColor: "#ffffff",
   scrollTrigger: {
@@ -107,8 +121,6 @@ gsap.to(".esg_intro", {
     scrub: true
   }
 });
-
-
 gsap.to(".intro_content", {
   y: -50,
   opacity: 1,
@@ -123,72 +135,26 @@ gsap.to(".intro_content", {
 });
 
 
-
-/* esg intro */
-/* gsap.set('.intro_content', { y: 100, opacity: 0 });
-
-gsap.to('.intro_content', {
-    y: 0,
-    opacity: 1,
-    duration:2,
-    scrollTrigger: {
-        trigger: '.intro_content',
-        start: 'top 100%',
-        end: 'bottom 20%',
-        toggleActions: "play none none reverse",
-        onEnter: () => {
-            // 배경색 부드럽게 흰색으로 변경
-            gsap.to('.esg_intro', {
-                backgroundColor: '#ffffff',
-                duration: 0.5
-            });
-            // 글자 색도 부드럽게 어두운 회색으로 변경
-            gsap.to('.intro_content p, .intro_content strong', {
-                color: '#111',
-                duration: 0.2
-            });
-        },
-        onLeaveBack: () => {
-            // 배경색 다시 원래 색으로 (짙은 파랑)
-            gsap.to('.esg_intro', {
-                backgroundColor: '#0c1b36',
-                duration: 0.2
-            });
-            // 글자 색 다시 흰색으로
-            gsap.to('.intro_content p, .intro_content strong', {
-                color: '#fff',
-                duration: 0.2
-            });
-        }
-    },
-    ease: "power2.out"
-}); */
-
-/* esg */
-const esgImg = document.querySelectorAll('.esg_img img')
-const esgCon = document.querySelectorAll('.esg_content div')
-
-console.log(esgImg)
-console.log(esgCon)
+// ✅ ESG 영역: 마우스 오버 시 이미지 변경
+const esgImg = document.querySelectorAll('.esg_img img');
+const esgCon = document.querySelectorAll('.esg_content div');
 
 esgCon.forEach(function(item, i){
-        item.addEventListener('mouseover',function(){
+    item.addEventListener('mouseover', function(){
+        esgImg.forEach(function(img) {
+            img.classList.remove('active');
+        });
+        esgImg[i].classList.add('active');
+    });
+});
 
-            esgImg.forEach(function(img) {
-                img.classList.remove('active')
-            })
-            esgImg[i].classList.add('active')
-        })
-    }) 
 
-/* main-swiper */
+// ✅ 메인 배너 Swiper 슬라이드 설정
 const slideDuration = 5000;
-document.documentElement.style.setProperty('--slide-duration',`${slideDuration}ms`)
+document.documentElement.style.setProperty('--slide-duration',`${slideDuration}ms`);
 
 const mainSwiper = new Swiper('.main_swiper', {
-    autoplay : {
-        delay : slideDuration 
-    },
+    autoplay : { delay : slideDuration },
     effect: 'fade',
     loop: true,	
     navigation: {
@@ -199,51 +165,35 @@ const mainSwiper = new Swiper('.main_swiper', {
         el: '.swiper-pagination',
         type: 'custom',
         renderCustom: function (swiper, current, total) {
-        return `
-            <span class="num">${current}</span>
-            <div class="progress"><div class="bar"></div></div>
-            <span class="num">${total}</span>
-            `
+            return `<span class="num">${current}</span>
+                    <div class="progress"><div class="bar"></div></div>
+                    <span class="num">${total}</span>`;
         },
     },
-})
-/* news swiper */
+});
+
+
+// ✅ 뉴스 Swiper 슬라이드 설정
 const newsSwiper = new Swiper('.news_swiper', {
-    autoplay : {
-        delay : slideDuration 
-    },
+    autoplay : { delay : slideDuration },
     loop: true,	
     slidesPerView:'4',
-    spaceBetween: 60, 
-    pagination:{
-        el: '.swiper-pagination',
-        type: 'progressbar'
-
-    },
+    spaceBetween: 60,
+    pagination: { el: '.swiper-pagination', type: 'progressbar' },
     breakpoints: {
-        0: { 
-            slidesPerView: 1,
-            spaceBetween: 20
-        },
-        500: {  
-            slidesPerView: 2,
-            spaceBetween: 40
-        },
-        1000: {  
-            slidesPerView: 3,
-            spaceBetween: 40
-        },
-        1500: { 
-            slidesPerView: 4,
-            spaceBetween: 60
-        }
+        0: { slidesPerView: 1, spaceBetween: 20 },
+        500: { slidesPerView: 2, spaceBetween: 40 },
+        1000: { slidesPerView: 3, spaceBetween: 40 },
+        1500: { slidesPerView: 4, spaceBetween: 60 }
     }
-})
+});
 
+
+// ✅ 뉴스 영역 애니메이션
 gsap.from(".news_swiper", {
   scrollTrigger: {
-    trigger: ".news_wrap h2", // h2 기준으로 트리거
-    start: "bottom 80%",      // h2가 거의 다 보일 때 시작
+    trigger: ".news_wrap h2",
+    start: "bottom 80%",
     toggleActions: "play none none none"
   },
   opacity: 0,
@@ -254,106 +204,108 @@ gsap.from(".news_swiper", {
 gsap.utils.toArray(".news_swiper .swiper-slide").forEach((slide, index) => {
   gsap.from(slide, {
     scrollTrigger: {
-      trigger: ".news_swiper",   // 전체 swiper 보일 때 트리거
+      trigger: ".news_swiper",
       start: "top 80%",
       toggleActions: "play none none none"
     },
     opacity: 0,
     y: 50,
     duration: 0.8,
-    delay: index * 0.2,          // 순차적으로 하나씩 지연되며 등장
+    delay: index * 0.2,
     ease: "power2.out"
   });
 });
 
-/* Recruit */
+
+// ✅ 인재채용 섹션 애니메이션
 gsap.utils.toArray(".recruit_content a").forEach((item, index) => {
   gsap.from(item, {
     scrollTrigger: {
       trigger: ".recruit_wrap",
-      start: "top 30%", // recruit_wrap이 화면에 들어올 때 시작
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 50,
-    duration: 0.8,
-    delay: index * 0.2, // 순차적으로 하나씩 등장
-    ease: "power2.out"
-  });
-});
-
-gsap.utils.toArray(".qmenu_item").forEach((item, index) => {
-  gsap.from(item, {
-    scrollTrigger: {
-      trigger: ".qmenu_wrap",         // 전체 박스 기준으로 시작
       start: "top 30%",
       toggleActions: "play none none none"
     },
     opacity: 0,
     y: 50,
     duration: 0.8,
-    delay: index * 0.2,               // 순차적 지연 효과
+    delay: index * 0.2,
     ease: "power2.out"
   });
 });
 
-const cursor = document.querySelector(".custom-cursor");
-  const recruitSection = document.querySelector(".recruit_wrap");
-  const links = recruitSection.querySelectorAll(".recruit_content a");
 
-  let mouseX = 0, mouseY = 0;
-  let cursorX = 0, cursorY = 0;
-
-  // 기본은 커서 숨김
-  cursor.style.display = "none";
-
-  // recruit 영역 위에 있을 때만 보이고 따라다님
-  document.addEventListener("mousemove", (e) => {
-    const inRecruit = recruitSection.contains(e.target);
-
-    if (inRecruit) {
-      cursor.style.display = "flex";
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    } else {
-      cursor.style.display = "none";
-    }
+// ✅ 빠른메뉴(qmenu) 애니메이션
+gsap.utils.toArray(".qmenu_item").forEach((item, index) => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: ".qmenu_wrap",
+      start: "top 30%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    delay: index * 0.2,
+    ease: "power2.out"
   });
+});
 
-  // 부드럽게 커서 이동
-  function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.2;
-    cursorY += (mouseY - cursorY) * 0.2;
-    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
-    requestAnimationFrame(animateCursor);
+
+// ✅ 인재채용 영역에서 마우스를 따라다니는 커스텀 커서 구현
+const cursor = document.querySelector(".custom-cursor");
+const recruitSection = document.querySelector(".recruit_wrap");
+const links = recruitSection.querySelectorAll(".recruit_content a");
+
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+cursor.style.display = "none"; // 기본은 숨김
+
+document.addEventListener("mousemove", (e) => {
+  const inRecruit = recruitSection.contains(e.target);
+
+  if (inRecruit) {
+    cursor.style.display = "flex";
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  } else {
+    cursor.style.display = "none";
   }
-  animateCursor();
+});
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggles = document.querySelectorAll(".allmenu_toggle");
-  
-    toggles.forEach((toggle) => {
-      toggle.addEventListener("click", function (e) {
-        e.preventDefault(); // a 태그 이동 막기
-  
-        // 현재 활성화된 메뉴 접기
-        const currentActive = document.querySelector(".allmenu_toggle.active");
-        if (currentActive && currentActive !== toggle) {
-          currentActive.classList.remove("active");
-          const prevUl = currentActive.nextElementSibling;
-          if (prevUl) prevUl.classList.remove("active");
-        }
-  
-        // 클릭한 메뉴 펼치기
-        this.classList.toggle("active");
-        const submenu = this.nextElementSibling;
-        if (submenu) submenu.classList.toggle("active");
-      });
+function animateCursor() {
+  cursorX += (mouseX - cursorX) * 0.2;
+  cursorY += (mouseY - cursorY) * 0.2;
+  cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+
+// ✅ 전체메뉴 토글 - 하위메뉴 펼치고 접기
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = document.querySelectorAll(".allmenu_toggle");
+
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const currentActive = document.querySelector(".allmenu_toggle.active");
+      if (currentActive && currentActive !== toggle) {
+        currentActive.classList.remove("active");
+        const prevUl = currentActive.nextElementSibling;
+        if (prevUl) prevUl.classList.remove("active");
+      }
+
+      this.classList.toggle("active");
+      const submenu = this.nextElementSibling;
+      if (submenu) submenu.classList.toggle("active");
     });
   });
-  
+});
 
-// 🔥 스크롤 대상 섹션들 배열로 수동 정의
+
+// ✅ 섹션 단위로 스크롤 이동하는 기능 구현
 function getFullSections() {
   const isMobile = window.innerWidth <= 801;
 
@@ -374,12 +326,12 @@ let currentSection = 0;
 let isAnimating = false;
 let scrollTimeout = null;
 
-// ✅ 브라우저 크기 바뀌면 fullSections 다시 설정
+// 브라우저 크기 바뀌면 다시 섹션 목록 업데이트
 window.addEventListener("resize", () => {
   fullSections = getFullSections();
 });
 
-// ✅ 휠 이벤트로 한 섹션씩 이동
+// 휠로 한 섹션씩 이동
 window.addEventListener("wheel", (e) => {
   e.preventDefault();
   if (isAnimating) return;
@@ -396,7 +348,7 @@ window.addEventListener("wheel", (e) => {
   }, 100);
 }, { passive: false });
 
-// ✅ 부드러운 이동 함수
+// 섹션 이동 애니메이션
 function scrollToSection(index) {
   if (index === currentSection) return;
 
@@ -405,7 +357,7 @@ function scrollToSection(index) {
   gsap.to(window, {
     scrollTo: {
       y: fullSections[index],
-      offsetY: 100, // header 높이만큼 여유
+      offsetY: 100,
       autoKill: false
     },
     duration: 1,
