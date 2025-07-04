@@ -8,6 +8,7 @@ html {
 body {
     font-size: 1.6rem; color: #222;
     font-family: 'Noto Sans KR','suit','MalgunGothic', 'AppleSDGothic', sans-serif;
+    overscroll-behavior: none; /* 터치나 휠로 인한 튕김 방지 */
     
 }
 section{
@@ -15,6 +16,11 @@ section{
     min-width: 36rem;
     min-height: 70rem;
 }
+/* 모든 section(또는 해당 요소)에 적용 */
+section, .main_wrap {
+    scroll-margin-top: 10rem; /* header height만큼 여백 확보 */
+}
+
 h2 {
     padding: 7rem 0; 
     font-size: 4.5rem;
@@ -420,6 +426,7 @@ footer>*{
     height: 100%;
     object-fit: cover;
 } 
+
 .main_wrap .main_swiper .main_txt{
     position: absolute;
     left: 15rem;
@@ -428,6 +435,19 @@ footer>*{
     font-weight: 500;
     line-height: 6rem;
     color: #FFF;
+    opacity: 0;
+    animation: fadeInText 1.2s ease-in-out 0.7s forwards;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .main_wrap .main_controls {
     position: absolute;bottom: 50px;left: 0;

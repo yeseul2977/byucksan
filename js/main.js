@@ -125,7 +125,7 @@ gsap.to(".intro_content", {
 
 
 /* esg intro */
-gsap.set('.intro_content', { y: 100, opacity: 0 });
+/* gsap.set('.intro_content', { y: 100, opacity: 0 });
 
 gsap.to('.intro_content', {
     y: 0,
@@ -162,7 +162,7 @@ gsap.to('.intro_content', {
         }
     },
     ease: "power2.out"
-});
+}); */
 
 /* esg */
 const esgImg = document.querySelectorAll('.esg_img img')
@@ -179,7 +179,7 @@ esgCon.forEach(function(item, i){
             })
             esgImg[i].classList.add('active')
         })
-    })
+    }) 
 
 /* main-swiper */
 const slideDuration = 5000;
@@ -352,3 +352,67 @@ const cursor = document.querySelector(".custom-cursor");
     });
   });
   
+
+// 🔥 스크롤 대상 섹션들 배열로 수동 정의
+function getFullSections() {
+  const isMobile = window.innerWidth <= 801;
+
+  return [
+    document.querySelector(".main_wrap"),
+    document.querySelector(".product_wrap"),
+    document.querySelector(".esg_intro"),
+    ...(isMobile ? [] : [document.querySelector(".esg_box")]),
+    document.querySelector(".news_wrap"),
+    document.querySelector(".recruit_wrap"),
+    document.querySelector(".qmenu_wrap"),
+    document.querySelector("footer")
+  ];
+}
+
+let fullSections = getFullSections();
+let currentSection = 0;
+let isAnimating = false;
+let scrollTimeout = null;
+
+// ✅ 브라우저 크기 바뀌면 fullSections 다시 설정
+window.addEventListener("resize", () => {
+  fullSections = getFullSections();
+});
+
+// ✅ 휠 이벤트로 한 섹션씩 이동
+window.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  if (isAnimating) return;
+
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    const delta = e.deltaY;
+
+    if (delta > 0 && currentSection < fullSections.length - 1) {
+      scrollToSection(currentSection + 1);
+    } else if (delta < 0 && currentSection > 0) {
+      scrollToSection(currentSection - 1);
+    }
+  }, 100);
+}, { passive: false });
+
+// ✅ 부드러운 이동 함수
+function scrollToSection(index) {
+  if (index === currentSection) return;
+
+  isAnimating = true;
+
+  gsap.to(window, {
+    scrollTo: {
+      y: fullSections[index],
+      offsetY: 100, // header 높이만큼 여유
+      autoKill: false
+    },
+    duration: 1,
+    ease: "power2.out",
+    onComplete: () => {
+      isAnimating = false;
+      currentSection = index;
+    }
+  });
+}
