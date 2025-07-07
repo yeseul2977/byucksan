@@ -749,7 +749,7 @@ footer>*{
 }
 /* news */
 .news_wrap{
-    min-height: 80rem;
+     min-height: 100vh;
 }
 .news_wrap .news_swiper{
     overflow: hidden;
@@ -821,6 +821,7 @@ footer>*{
 .recruit_wrap{
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
 }
 .recruit_wrap .recruit_bg_video {
     position: absolute;
